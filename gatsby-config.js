@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Typescript Starter`,
+    title: `Hyeseong's Blog`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
