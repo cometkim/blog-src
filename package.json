@@ -21,7 +21,9 @@
     "gatsby": "^1.9.149",
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-react-helmet": "^1.0.8",
-    "gatsby-plugin-typescript": "^1.4.12"
+    "gatsby-plugin-typescript": "^1.4.12",
+    "gatsby-source-filesystem": "^1.5.11",
+    "gatsby-transformer-remark": "^1.7.26"
   },
   "devDependencies": {
     "@types/node": "^8.5.7",
