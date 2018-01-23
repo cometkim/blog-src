@@ -3,8 +3,8 @@ module.exports = {
     title: `Hyeseong's Blog`,
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
-    // Add typescript stack into webpack
     `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-source-filesystem`,
