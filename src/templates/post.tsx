@@ -1,14 +1,14 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import Link from 'gatsby-link';
-import Helmet from 'react-helmet';
+import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
 
 interface BlogPostProps {
     data: {
         post: {
-            html: string,
+            html: string
             frontmatter: {
-                path: string,
+                path: string
                 title: string
             }
         }
@@ -16,15 +16,15 @@ interface BlogPostProps {
 }
 
 export default ({ data }: BlogPostProps) => {
-    const { post } = data;
+    const { post } = data
 
     return (
         <div>
             <h1>{post.frontmatter.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </div>
-    );
-};
+    )
+}
 
 export const pageQuery = graphql`
     query BlogPostByPath($path: String!) {
@@ -35,5 +35,5 @@ export const pageQuery = graphql`
                 title
             }
         }
-    } 
-`;
+    }
+`

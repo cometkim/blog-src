@@ -1,9 +1,9 @@
-import * as React from "react";
+import * as React from 'react'
 
-import './index.scss';
+import './index.scss'
 
 interface DefaultLayoutProps {
-    children: any;
-};
+    children: any
+}
 
-export default ({ children }: DefaultLayoutProps) => <div>{children()}</div>;
+export default ({ children }: DefaultLayoutProps) => <div>{children()}</div>

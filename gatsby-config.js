@@ -1,18 +1,18 @@
 module.exports = {
-  siteMetadata: {
-    title: `Hyeseong's Blog`,
-  },
-  plugins: [
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-typescript`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/blog-posts/posts`,
-        name: `blog-posts`
-      }
+    siteMetadata: {
+        title: `Hyeseong's Blog`
     },
-    `gatsby-transformer-remark`
-  ],
-}
+    plugins: [
+        `gatsby-plugin-sass`,
+        `gatsby-plugin-react-helmet`,
+        `gatsby-plugin-typescript`,
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/blog-posts/posts`,
+                name: `blog-posts`
+            }
+        },
+        `gatsby-transformer-remark`
+    ]
+};

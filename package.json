@@ -1,36 +1,32 @@
 {
-  "name": "cometkim-blog-src",
-  "description": "Source of Hyeseong's Blog",
-  "version": "0.0.1",
-  "author": "Hyeseong Kim <cometkim.kr@gmail.com>",
-  "keywords": [
-    "gatsby",
-    "typescript",
-    "blog"
-  ],
-  "license": "MIT",
-  "main": "n/a",
-  "private": true,
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.ts*\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "gatsby": "^1.9.149",
-    "gatsby-link": "^1.6.32",
-    "gatsby-plugin-react-helmet": "^1.0.8",
-    "gatsby-plugin-sass": "^1.0.15",
-    "gatsby-plugin-typescript": "^1.4.12",
-    "gatsby-source-filesystem": "^1.5.11",
-    "gatsby-transformer-remark": "^1.7.26"
-  },
-  "devDependencies": {
-    "@types/node": "^8.5.7",
-    "@types/react": "^16.0.34",
-    "@types/react-dom": "^16.0.3",
-    "@types/react-helmet": "^5.0.3",
-    "prettier": "^1.9.2"
-  }
+    "name": "cometkim-blog-src",
+    "description": "Source of Hyeseong's Blog",
+    "version": "0.0.1",
+    "author": "Hyeseong Kim <cometkim.kr@gmail.com>",
+    "keywords": ["gatsby", "typescript", "blog"],
+    "license": "MIT",
+    "main": "n/a",
+    "private": true,
+    "scripts": {
+        "build": "gatsby build",
+        "develop": "gatsby develop",
+        "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --tab-width 4 --write \"src/**/*.ts*\"",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "gatsby": "^1.9.149",
+        "gatsby-link": "^1.6.32",
+        "gatsby-plugin-react-helmet": "^1.0.8",
+        "gatsby-plugin-sass": "^1.0.15",
+        "gatsby-plugin-typescript": "^1.4.12",
+        "gatsby-source-filesystem": "^1.5.11",
+        "gatsby-transformer-remark": "^1.7.26"
+    },
+    "devDependencies": {
+        "@types/node": "^8.5.7",
+        "@types/react": "^16.0.34",
+        "@types/react-dom": "^16.0.3",
+        "@types/react-helmet": "^5.0.3",
+        "prettier": "^1.9.2"
+    }
 }
