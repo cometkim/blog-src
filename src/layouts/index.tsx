@@ -7,14 +7,10 @@ import './index.scss'
 
 interface DefaultLayoutProps {
     children: any
-    location: {
-        pathname: string
-    }
 }
 
-export default ({ children, location }: DefaultLayoutProps) => {
-    const { pathname } = location
-    const { siteUrl, title, description, author, keywords } = config
+export default ({ children }: DefaultLayoutProps) => {
+    const { title, description, author, keywords } = config
 
     return (
         <div>
@@ -24,8 +20,6 @@ export default ({ children, location }: DefaultLayoutProps) => {
                 <meta name="description" content={description} />
                 <meta name="author" content={author} />
                 <meta name="keywords" content={keywords.join(', ')} />
-
-                <link rel="canonical" href={siteUrl + pathname} />
             </Helmet>
 
             {children()}
