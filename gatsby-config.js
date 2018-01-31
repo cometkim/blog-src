@@ -8,6 +8,7 @@ module.exports = {
         `gatsby-plugin-sass`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-typescript`,
+        `gatsby-plugin-styled-components`,
         {
             resolve: `gatsby-plugin-canonical-urls`,
             options: {
