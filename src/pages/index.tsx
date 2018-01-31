@@ -7,11 +7,9 @@ import ProfileCard from '../components/profile-card';
 import PostList from '../components/post-list';
 
 export default () => {
-    return (
-        <div>
-            <Header title={config.title} />
-            <ProfileCard />
-            <PostList />
-        </div>
-    )
+    return [
+            <Header title={config.title} />,
+            <ProfileCard />,
+            <PostList />,
+    ]
 }
