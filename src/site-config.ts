@@ -1,4 +1,4 @@
-const config = require('../gatsby-config.js')
+import config = require('../gatsby-config')
 
 export default {
     siteUrl: config.siteMetadata.siteUrl,
