@@ -7,21 +7,20 @@ interface HeaderProps {
     title: string
 }
 
-const HeaderLink = styled(Link)`
+export default ({ title }: HeaderProps) => (
+    <header>
+        <TitleLink to='/'>
+            <Title>{title}</Title>
+        </TitleLink>
+    </header>
+)
+
+const TitleLink = styled(Link)`
     text-decoration: none;
     color: black;
 `
 
-const HeaderTitle = styled.h2`
+const Title = styled.h1`
+    font-size: 24px;
     margin-left: 20px;
 `
-
-export default ({ title }: HeaderProps) => {
-    return (
-        <header>
-            <HeaderLink to='/'>
-                <HeaderTitle>{title}</HeaderTitle>
-            </HeaderLink>
-        </header>
-    )
-}
