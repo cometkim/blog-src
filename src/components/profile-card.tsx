@@ -29,7 +29,7 @@ export default (props: ProfileCardProps) => {
         <Container>
             <Picture src='//www.gravatar.com/avatar/f8926983e9d37ea2f6ffba6575fad143' />
             <Description>
-                <strong>{config.owner}</strong>
+                <strong>{config.name}</strong>
                 <div>{config.email}</div>
                 <a href={`https://github.com/${config.github}`} target='_blank'>GitHub</a>
                 {' | '}
