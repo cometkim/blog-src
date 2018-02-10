@@ -1,4 +1,5 @@
 import * as React from 'react'
+import styled from 'styled-components'
 
 import config from '../site-config';
 
@@ -19,9 +20,16 @@ export default ({ data }: IndexPageProps) => {
     return [
         <Header key='header' title={config.title} />,
         <ProfileCard key='profile-card' />,
-        <ul key='post-card-list'>{postCards}</ul>,
+        <PostCardList key='post-card-list'>{postCards}</PostCardList>,
     ]
 }
+
+const PostCardList = styled.ul`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+`
 
 export const pageQuery = graphql`
     query IndexQuery {
