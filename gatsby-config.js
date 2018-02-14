@@ -23,6 +23,13 @@ module.exports = {
                 name: `blog-posts`
             }
         },
-        `gatsby-transformer-remark`
+        {
+            resolve: 'gatsby-transformer-remark',
+            options: {
+                plugins: [
+                    'gatsby-remark-prismjs',
+                ]
+            }
+        }
     ]
 };
