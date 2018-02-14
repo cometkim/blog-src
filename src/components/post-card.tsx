@@ -3,6 +3,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
+import theme from '../utils/theme'
+
 interface PostCardProps {
     path: string
     title: string
@@ -32,7 +34,7 @@ export default ({ path, title, author, date, tags, excerpt }: PostCardProps) => 
 
 const Container = styled.div`
     overflow: hidden;
-    max-width: 760px;
+    max-width: ${theme.contentMaxWidth};
 `
 
 const GoToPost = styled(Link) `

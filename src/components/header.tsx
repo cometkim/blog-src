@@ -3,19 +3,26 @@ import * as React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
+import theme from '../utils/theme'
+
 interface HeaderProps {
     title: string
 }
 
 export default ({ title }: HeaderProps) => (
-    <header>
+    <Header>
         <TitleLink to='/'>
             <Title>{title}</Title>
         </TitleLink>
-    </header>
+    </Header>
 )
 
-const TitleLink = styled(Link)`
+const Header = styled.header`
+    margin: 0 auto;
+    max-width: ${theme.contentMaxWidth};
+`
+
+const TitleLink = styled(Link) `
     text-decoration: none;
     color: black;
 `
