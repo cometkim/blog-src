@@ -11,7 +11,6 @@ interface ProfileCardProps {
 
 const Container = styled.div`
     display: flex;
-    margin: 0 auto;
     align-items: center;
     justify-content: center;
 `
