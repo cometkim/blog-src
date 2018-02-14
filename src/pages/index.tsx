@@ -1,4 +1,5 @@
 import * as React from 'react'
+
 import styled from 'styled-components'
 
 import config from '../site-config';
@@ -46,7 +47,7 @@ export const pageQuery = graphql`
                         path
                         title
                         author
-                        date(formatString: "YYYY년 MM월 DD일")
+                        date(formatString: "YYYY년 M월 D일")
                         tags
                     }
                 }
