@@ -12,30 +12,23 @@ interface PostCardProps {
     excerpt: string
 }
 
-export default ({ path, title, author, date: rawTime, tags, excerpt }: PostCardProps) => {
-    const date: any = new Date();
-    date.setTime(rawTime);
-
-    const formattedDate = date.toLocaleDateString();
-
-    return (
-        <Container>
-            <GoToPost to={path}>
-                <Title>{title}</Title>
-                <Excerpt>{excerpt}</Excerpt>
-            </GoToPost>
-            <Section>
-                <Meta><time>{formattedDate}</time></Meta>
-                <Meta>{author}</Meta>
-            </Section>
-            <TagList>
-                {tags.map((tag, index) =>
-                    <TagItem key={index}>{tag}</TagItem>
-                )}
-            </TagList>
-        </Container>
-    )
-}
+export default ({ path, title, author, date, tags, excerpt }: PostCardProps) => (
+    <Container>
+        <GoToPost to={path}>
+            <Title>{title}</Title>
+            <Excerpt>{excerpt}</Excerpt>
+        </GoToPost>
+        <Section>
+            <Meta><time>{date}</time></Meta>
+            <Meta>{author}</Meta>
+        </Section>
+        <TagList>
+            {tags.map((tag, index) =>
+                <TagItem key={index}>{tag}</TagItem>
+            )}
+        </TagList>
+    </Container>
+)
 
 const Container = styled.div`
     overflow: hidden;
@@ -46,7 +39,7 @@ const GoToPost = styled(Link) `
     text-decoration: none;
     color: black;
 
-    &:hover {
+    :hover {
         text-decoration: underline;
     }
 `

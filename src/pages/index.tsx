@@ -46,7 +46,7 @@ export const pageQuery = graphql`
                         path
                         title
                         author
-                        date
+                        date(formatString: "YYYY년 MM월 DD일")
                         tags
                     }
                 }
