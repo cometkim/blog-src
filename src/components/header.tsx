@@ -3,7 +3,7 @@ import * as React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-import theme from '../utils/theme'
+import theme from 'utils/theme'
 
 interface HeaderProps {
     title: string

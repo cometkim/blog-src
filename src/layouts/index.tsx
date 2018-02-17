@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import Helmet from 'react-helmet'
 
-import config from '../site-config'
+import config from 'site-config'
 import './index.scss'
 
 interface DefaultLayoutProps {

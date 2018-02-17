@@ -2,11 +2,11 @@ import * as React from 'react'
 
 import styled from 'styled-components'
 
-import config from '../site-config';
+import config from 'site-config';
 
-import Header from '../components/header';
-import ProfileCard from '../components/profile-card';
-import PostCard from '../components/post-card';
+import Header from 'components/header';
+import ProfileCard from 'components/profile-card';
+import PostCard from 'components/post-card';
 
 export default ({ data }: IndexPageProps) => {
     const postCards = data.allMarkdownRemark.edges

@@ -8,6 +8,7 @@ module.exports = {
         `gatsby-plugin-sass`,
         `gatsby-plugin-react-next`,
         `gatsby-plugin-react-helmet`,
+        'gatsby-plugin-resolve-src',
         `gatsby-plugin-typescript`,
         `gatsby-plugin-styled-components`,
         {

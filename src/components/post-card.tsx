@@ -3,7 +3,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
-import theme from '../utils/theme'
+import theme from 'utils/theme'
 
 interface PostCardProps {
     path: string

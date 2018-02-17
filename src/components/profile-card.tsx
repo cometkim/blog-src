@@ -3,7 +3,7 @@ import * as React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-import config from '../site-config'
+import config from 'site-config'
 
 interface ProfileCardProps {
 

@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import Header from '../components/header'
+import Header from 'components/header'
 
-import theme from '../utils/theme'
+import theme from 'utils/theme'
 
 import 'prismjs/themes/prism.css'
 
