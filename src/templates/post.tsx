@@ -36,6 +36,7 @@ const Container = styled.div`
 
 const PostBody = styled.div`
     max-width: ${theme.contentMaxWidth};
+    padding: 0 ${theme.contentSidePadding};
 `
 
 export const pageQuery = graphql`

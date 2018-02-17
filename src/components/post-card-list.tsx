@@ -25,7 +25,7 @@ const PostCardList = styled.ul`
     flex-direction: column;
     align-items: center;
     list-style: none;
-    padding: 0;
+    padding: 0 ${theme.contentSidePadding};
 `
 
 const PostCardItem = styled.li`
