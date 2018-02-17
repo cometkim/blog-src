@@ -7,6 +7,7 @@ import Helmet from 'react-helmet'
 import { Header } from 'components'
 import theme from 'utils/theme'
 
+import './post.scss'
 import 'prismjs/themes/prism.css'
 
 interface BlogPostProps {
@@ -17,7 +18,7 @@ interface BlogPostProps {
 
 export default ({ data }: BlogPostProps) => (
     <Container>
-        <PostBody dangerouslySetInnerHTML={{ __html: data.post.html }} />
+        <PostBody className='post-body' dangerouslySetInnerHTML={{ __html: data.post.html }} />
     </Container>
 )
 
@@ -28,27 +29,6 @@ const Container = styled.div`
 
 const PostBody = styled.div`
     max-width: ${theme.contentMaxWidth};
-
-    p {
-        font-size: 17px;
-    }
-
-    blockquote {
-        position: relative;
-        color: #999;
-        margin: 20px 0;
-        padding-top: 20px;
-        padding-left: 40px;
-
-        &:before {
-            content: '\u201C';
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-size: 60px;
-            font-weight: bold;
-        }
-    }
 `
 
 export const pageQuery = graphql`
