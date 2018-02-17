@@ -11,23 +11,23 @@ interface HeaderProps {
 
 export default ({ title }: HeaderProps) => (
     <Header>
-        <TitleLink to='/'>
-            <Title>{title}</Title>
-        </TitleLink>
+        <HomeLink to='/'>{title}</HomeLink>
     </Header>
 )
 
 const Header = styled.header`
-    margin: 0 auto;
-    max-width: ${theme.contentMaxWidth};
+    display: flex;
+    align-items: center;
+    margin: 0;
+    height: 60px;
+    border-bottom: 1px solid ${theme.grayColor};
 `
 
-const TitleLink = styled(Link) `
+const HomeLink = styled(Link) `
+    position: absolute;
+    left: 20px;
     text-decoration: none;
-    color: black;
-`
-
-const Title = styled.h1`
     font-size: 24px;
-    margin-left: 20px;
+    font-weight: bold;
+    color: black;
 `
