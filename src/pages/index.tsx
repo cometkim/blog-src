@@ -13,7 +13,7 @@ interface IndexPageProps {
 
 export default ({ data }: IndexPageProps) => (
     <React.Fragment>
-        <Header key='header' title={config.title} />
+        <Header title={config.title} />
         <PostCardList data={data}/>
     </React.Fragment>
 )
