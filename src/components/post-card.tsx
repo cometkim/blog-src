@@ -69,7 +69,7 @@ const TagList = styled.ul`
 const TagItem = styled.li`
     float: left;
     font-size: 12px;
-    background-color: #eee;
+    background-color: ${theme.grayColor};
     border-radius: 3px;
     margin-right: 8px;
     padding: 2px 10px;
