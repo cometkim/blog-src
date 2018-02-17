@@ -23,7 +23,14 @@ export default ({ data }: IndexPageProps) => {
 
     return [
         <Header key='header' title={config.title} />,
-        <ProfileCard key='profile-card' />,
+        <ProfileCard
+            key='profile-card'
+            picUrl={config.picUrl}
+            name={config.name}
+            email={config.email}
+            github={config.github}
+            twitter={config.twitter}
+        />,
         <PostCardList key='post-card-list'>{postCards}</PostCardList>,
     ]
 }
