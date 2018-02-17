@@ -1,9 +1,9 @@
 import * as React from 'react'
-
 import styled from 'styled-components'
 
+import { Header, PostCardList } from 'components';
+
 import config from 'site-config';
-import { Header, PostCard, ProfileCard } from 'components';
 
 interface IndexPageProps {
     data: {
@@ -11,30 +11,12 @@ interface IndexPageProps {
     }
 }
 
-export default ({ data }: IndexPageProps) => {
-    const postCards = data.allMarkdownRemark.edges
-        .map(edge => edge.node)
-        .map(({ excerpt, frontmatter, internal }) => ({ excerpt, ...frontmatter, ...internal }))
-        .map(props => (
-            <li key={props.contentDigest}>
-                <PostCard {...props} />
-            </li>
-        ))
-
-    return (
-        <React.Fragment>
-            <Header key='header' title={config.title} />
-            <PostCardList key='post-card-list'>{postCards}</PostCardList>
-        </React.Fragment>
-    )
-}
-
-const PostCardList = styled.ul`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    list-style: none;
-`
+export default ({ data }: IndexPageProps) => (
+    <React.Fragment>
+        <Header key='header' title={config.title} />
+        <PostCardList data={data}/>
+    </React.Fragment>
+)
 
 export const pageQuery = graphql`
     query IndexQuery {

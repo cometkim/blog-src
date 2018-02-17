@@ -5,7 +5,7 @@ import Link from 'gatsby-link'
 
 import theme from 'utils/theme'
 
-interface PostCardProps {
+export interface PostCardProps {
     path: string
     title: string
     author: string
