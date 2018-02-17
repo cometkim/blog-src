@@ -5,6 +5,7 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import { Header } from 'components'
+
 import theme from 'utils/theme'
 
 import './post.scss'
@@ -17,9 +18,15 @@ interface BlogPostProps {
 }
 
 export default ({ data }: BlogPostProps) => (
-    <Container>
-        <PostBody className='post-body' dangerouslySetInnerHTML={{ __html: data.post.html }} />
-    </Container>
+    <React.Fragment>
+        <Header title='< Home'/>
+        <Container>
+            <PostBody 
+                className='post-body'
+                dangerouslySetInnerHTML={{ __html: data.post.html }}
+            />
+        </Container>
+    </React.Fragment>
 )
 
 const Container = styled.div`
@@ -35,9 +42,6 @@ export const pageQuery = graphql`
     query BlogPostByPath($path: String!) {
         post: markdownRemark(frontmatter: { path: { eq: $path } }) {
             html
-            frontmatter {
-                path
-            }
         }
     }
 `
