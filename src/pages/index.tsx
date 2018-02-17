@@ -21,18 +21,12 @@ export default ({ data }: IndexPageProps) => {
             </li>
         ))
 
-    return [
-        <Header key='header' title={config.title} />,
-        <ProfileCard
-            key='profile-card'
-            picUrl={config.picUrl}
-            name={config.name}
-            email={config.email}
-            github={config.github}
-            twitter={config.twitter}
-        />,
-        <PostCardList key='post-card-list'>{postCards}</PostCardList>,
-    ]
+    return (
+        <React.Fragment>
+            <Header key='header' title={config.title} />
+            <PostCardList key='post-card-list'>{postCards}</PostCardList>
+        </React.Fragment>
+    )
 }
 
 const PostCardList = styled.ul`
