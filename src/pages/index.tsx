@@ -8,6 +8,12 @@ import Header from 'components/header';
 import ProfileCard from 'components/profile-card';
 import PostCard from 'components/post-card';
 
+interface IndexPageProps {
+    data: {
+        allMarkdownRemark: AllMarkdownRemark
+    }
+}
+
 export default ({ data }: IndexPageProps) => {
     const postCards = data.allMarkdownRemark.edges
         .map(edge => edge.node)

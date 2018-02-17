@@ -12,13 +12,7 @@ import 'prismjs/themes/prism.css'
 
 interface BlogPostProps {
     data: {
-        post: {
-            html: string
-            frontmatter: {
-                path: string
-                title: string
-            }
-        }
+        post: MarkdownRemark
     }
 }
 
