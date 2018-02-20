@@ -2,27 +2,27 @@ const siteUrl = 'https://blog.cometkim.kr'
 
 module.exports = {
     siteMetadata: {
-        siteUrl
+        siteUrl,
     },
     plugins: [
-        `gatsby-plugin-sass`,
-        `gatsby-plugin-react-next`,
-        `gatsby-plugin-react-helmet`,
+        'gatsby-plugin-sass',
+        'gatsby-plugin-react-next',
+        'gatsby-plugin-react-helmet',
         'gatsby-plugin-resolve-src',
-        `gatsby-plugin-typescript`,
-        `gatsby-plugin-styled-components`,
+        'gatsby-plugin-typescript',
+        'gatsby-plugin-styled-components',
         {
-            resolve: `gatsby-plugin-canonical-urls`,
+            resolve: 'gatsby-plugin-canonical-urls',
             options: {
-                siteUrl
-            }
+                siteUrl,
+            },
         },
         {
-            resolve: `gatsby-source-filesystem`,
+            resolve: 'gatsby-source-filesystem',
             options: {
                 path: `${__dirname}/blog-posts/posts`,
-                name: `blog-posts`
-            }
+                name: 'blog-posts',
+            },
         },
         {
             resolve: 'gatsby-transformer-remark',
@@ -33,12 +33,12 @@ module.exports = {
                         resolve: 'gatsby-remark-images',
                         options: {
                             maxWidth: 590,
-                        }
+                        },
                     },
                     'gatsby-remark-copy-linked-files',
                     'gatsby-remark-prismjs',
-                ]
-            }
-        }
-    ]
-};
+                ],
+            },
+        },
+    ],
+}

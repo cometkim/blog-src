@@ -1,30 +1,36 @@
 declare const graphql: (query: TemplateStringsArray) => void
 
-interface AllMarkdownRemark {
+declare interface AllMarkdownRemarkData {
+    data: {
+        allMarkdownRemark: AllMarkdownRemark
+    }
+}
+
+declare interface AllMarkdownRemark {
     edges?: Array<MarkdownRemarkEdge>
 }
 
-interface MarkdownRemarkEdge {
+declare interface MarkdownRemarkEdge {
     node?: MarkdownRemark
 }
 
-interface MarkdownRemark {
+declare interface MarkdownRemark {
     id?: string
     fileAbsoultePath?: string
     html?: string
-    excerpt?: string,
+    excerpt?: string
     internal?: MarkdownRemarkInternal
     frontmatter?: Frontmatter
 }
 
-interface MarkdownRemarkInternal {
+declare interface MarkdownRemarkInternal {
     content?: string
     contentDigest?: string
-    type?: 'MarkdownRemark',
+    type?: 'MarkdownRemark'
     owner?: 'gatsby-transformer-remark'
 }
 
-interface Frontmatter {
+declare interface Frontmatter {
     title?: string
     path?: string
     author?: string

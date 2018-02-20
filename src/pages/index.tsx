@@ -1,15 +1,11 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { Header, PostCardList } from 'components';
+import { Header, PostCardList } from 'components'
 
-import config from 'site-config';
+import config from 'site-config'
 
-interface IndexPageProps {
-    data: {
-        allMarkdownRemark: AllMarkdownRemark
-    }
-}
+type IndexPageProps = AllMarkdownRemarkData
 
 export default ({ data }: IndexPageProps) => (
     <React.Fragment>

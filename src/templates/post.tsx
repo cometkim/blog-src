@@ -1,8 +1,6 @@
 import * as React from 'react'
-
 import styled from 'styled-components'
 import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
 
 import { Header } from 'components'
 
@@ -21,7 +19,7 @@ export default ({ data }: BlogPostProps) => (
     <React.Fragment>
         <Header title='< Home'/>
         <Container>
-            <PostBody 
+            <PostBody
                 className='post-body'
                 dangerouslySetInnerHTML={{ __html: data.post.html }}
             />

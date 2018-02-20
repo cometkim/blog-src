@@ -14,7 +14,7 @@
     "scripts": {
         "build": "gatsby build",
         "develop": "gatsby develop",
-        "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --tab-width 4 --write \"src/**/*.ts*\"",
+        "format": "tslint --fix -c tslint.json src/**/*.tsx?",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
@@ -40,6 +40,7 @@
         "@types/react": "^16.0.34",
         "@types/react-dom": "^16.0.3",
         "@types/react-helmet": "^5.0.3",
-        "babel-plugin-transform-object-rest-spread": "^6.26.0"
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "tslint": "^5.9.1"
     }
 }

@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
@@ -10,7 +9,7 @@ export interface PostCardProps {
     title: string
     author: string
     date: string
-    tags: Array<string>
+    tags: string[]
     excerpt: string
 }
 

@@ -7,7 +7,7 @@ import theme from 'utils/theme'
 import { injectAllMarkdownRemark } from 'utils/post-utils'
 
 export interface PostCardListProps {
-    props: Array<PostCardProps>
+    props: PostCardProps[]
 }
 
 export const PostCardListComponent = ({ props: posts }: PostCardListProps) => (
