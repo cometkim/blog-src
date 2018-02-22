@@ -1,7 +1,11 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { Header, PostCardList } from 'components'
+import {
+    Header,
+    MainContainer,
+    PostCardList
+} from 'components';
 
 import config from 'site-config'
 
@@ -9,8 +13,10 @@ type IndexPageProps = AllMarkdownRemarkData
 
 export default ({ data }: IndexPageProps) => (
     <>
-        <Header title={config.title} />
-        <PostCardList data={data}/>
+        <Header fixed title={config.title} />
+        <MainContainer>
+            <PostCardList data={data}/>
+        </MainContainer>
     </>
 )
 
