@@ -37,8 +37,9 @@ module.exports = {
                     },
                     'gatsby-remark-copy-linked-files',
                     'gatsby-remark-prismjs',
-                ],
-            },
-        },
-    ],
+                    'gatsby-remark-autolink-headers',
+                ]
+            }
+        }
+    ]
 }
