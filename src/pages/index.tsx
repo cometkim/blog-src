@@ -8,10 +8,10 @@ import config from 'site-config'
 type IndexPageProps = AllMarkdownRemarkData
 
 export default ({ data }: IndexPageProps) => (
-    <React.Fragment>
+    <>
         <Header title={config.title} />
         <PostCardList data={data}/>
-    </React.Fragment>
+    </>
 )
 
 export const pageQuery = graphql`

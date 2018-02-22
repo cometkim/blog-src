@@ -16,7 +16,7 @@ interface BlogPostProps {
 }
 
 export default ({ data }: BlogPostProps) => (
-    <React.Fragment>
+    <>
         <Header title='< Home'/>
         <Container>
             <PostBody
@@ -24,7 +24,7 @@ export default ({ data }: BlogPostProps) => (
                 dangerouslySetInnerHTML={{ __html: data.post.html }}
             />
         </Container>
-    </React.Fragment>
+    </>
 )
 
 const Container = styled.div`

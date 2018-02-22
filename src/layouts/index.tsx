@@ -13,7 +13,7 @@ export default ({ children }: DefaultLayoutProps) => {
     const { title, description, author, keywords } = config
 
     return (
-        <div>
+        <>
             <Helmet>
                 {/* 사이트 기본 메타 정보는 대부분의 페이지에서 Override 되며, 생략된 경우만 사용 */}
                 <title>{title}</title>
@@ -23,6 +23,6 @@ export default ({ children }: DefaultLayoutProps) => {
             </Helmet>
 
             {children()}
-        </div>
+        </>
     )
 }
