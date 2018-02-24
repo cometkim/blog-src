@@ -36,6 +36,7 @@ const Container = styled.main`
 `
 
 const PostContainer = styled.div`
+    overflow: auto;
     max-width: ${theme.contentMaxWidth};
     padding: 0 ${theme.contentSidePadding};
     padding-top: ${theme.headerHeight};
