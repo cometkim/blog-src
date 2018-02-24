@@ -26,9 +26,6 @@ exports.createPages = async ({ boundActionCreators, graphql }) => {
         .map(post => ({
             path: post.frontmatter.path,
             component: `${__dirname}/src/templates/post.tsx`,
-            context: {
-                path: post.frontmatter.path
-            }
         }))
         .forEach(ctx => createPage(ctx));
 }
