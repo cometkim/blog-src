@@ -1,9 +1,8 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
+import { injectGlobal } from 'styled-components'
 
 import config from 'site-config'
-
-import './index.scss'
 
 interface DefaultLayoutProps {
     children: any
@@ -26,3 +25,13 @@ export default ({ children }: DefaultLayoutProps) => {
         </>
     )
 }
+
+// tslint:disable-next-line:no-unused-expression
+injectGlobal`
+    @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+    body {
+        font-family: 'Noto Sans KR';
+        margin: 0;
+    }
+`

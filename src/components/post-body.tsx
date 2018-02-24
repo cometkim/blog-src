@@ -1,4 +1,9 @@
-article {
+import styled from 'styled-components'
+import theme from 'utils/theme'
+
+export default styled.article`
+    overflow: auto;
+
     p {
         font-size: 17px;
     }
@@ -10,7 +15,7 @@ article {
         padding-left: 40px;
 
         &:before {
-            content: '\201C';
+            content: '\u201C';
             position: absolute;
             top: -30px;
             left: 0;
@@ -18,4 +23,4 @@ article {
             font-weight: bold;
         }
     }
-}
+`
