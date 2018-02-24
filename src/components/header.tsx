@@ -21,9 +21,9 @@ export default class Header extends React.PureComponent<HeaderProps, HeaderState
 
     state = {
         hide: false,
-        pageYOffset: 0
+        pageYOffset: 0,
     }
-    
+
     handleScroll = () => {
         const { pageYOffset } = window
         const deltaY = pageYOffset - this.state.pageYOffset
@@ -39,7 +39,7 @@ export default class Header extends React.PureComponent<HeaderProps, HeaderState
     }
 
     componentWillUnmount() {
-        if (!this.props.fixed){
+        if (!this.props.fixed) {
             window.removeEventListener('scroll', this.handleScroll)
         }
     }
@@ -64,7 +64,7 @@ const Container = styled.header`
     border-bottom: 1px solid ${theme.grayColor};
     transition: transform .5s ease;
     z-index: 2;
-    
+
     &.hide {
         transform: translateY(-${theme.headerHeight});
     }
