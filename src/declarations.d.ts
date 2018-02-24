@@ -20,6 +20,7 @@ declare interface MarkdownRemark {
     html?: string
     excerpt?: string
     internal?: MarkdownRemarkInternal
+    fields?: Fields
     frontmatter?: Frontmatter
 }
 
@@ -32,9 +33,12 @@ declare interface MarkdownRemarkInternal {
 
 declare interface Frontmatter {
     title?: string
-    path?: string
     author?: string
     date?: string
     tags?: Array<string>
     draft?: boolean
+}
+
+declare interface Fields {
+    slug: string
 }

@@ -34,12 +34,11 @@ export const pageQuery = graphql`
         ) {
             edges {
                 node {
-                    internal {
-                        contentDigest
+                    fields {
+                        slug
                     }
                     excerpt
                     frontmatter {
-                        path
                         title
                         author
                         date(formatString: "YYYY년 M월 D일")

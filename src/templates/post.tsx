@@ -44,8 +44,8 @@ const PostContainer = styled.div`
 `
 
 export const pageQuery = graphql`
-    query BlogPostByPath($path: String!) {
-        post: markdownRemark(frontmatter: { path: { eq: $path } }) {
+    query BlogPostByPath($slug: String!) {
+        post: markdownRemark(fields: { slug: { eq: $slug } }) {
             html
         }
     }

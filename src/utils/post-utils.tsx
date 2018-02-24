@@ -3,8 +3,8 @@ import * as React from 'react'
 import { PostCardProps } from 'components/post-card'
 
 const mapMarkdownRemarkToContext =
-    ({ excerpt, frontmatter }: MarkdownRemark) =>
-    ({ excerpt, ...frontmatter } as PostCardProps)
+    ({ excerpt, fields, frontmatter }: MarkdownRemark) =>
+    ({ excerpt, ...fields, ...frontmatter } as PostCardProps)
 
 export const injectAllMarkdownRemark =
     (Component: any) =>

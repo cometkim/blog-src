@@ -5,7 +5,7 @@ import Link from 'gatsby-link'
 import theme from 'utils/theme'
 
 export interface PostCardProps {
-    path: string
+    slug: string
     title: string
     author: string
     date: string
@@ -13,9 +13,9 @@ export interface PostCardProps {
     excerpt: string
 }
 
-export default ({ path, title, author, date, tags, excerpt }: PostCardProps) => (
+export default ({ slug, title, author, date, tags, excerpt }: PostCardProps) => (
     <Container>
-        <GoToPost to={path}>
+        <GoToPost to={slug}>
             <Title>{title}</Title>
             <Excerpt>{excerpt}</Excerpt>
         </GoToPost>
