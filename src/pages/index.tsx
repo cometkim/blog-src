@@ -3,22 +3,29 @@ import styled from 'styled-components'
 
 import {
     Header,
-    MainContainer,
     PostCardList
-} from 'components';
+} from 'components'
 
 import config from 'site-config'
+import theme from 'utils/theme'
 
 type IndexPageProps = AllMarkdownRemarkData
 
 export default ({ data }: IndexPageProps) => (
     <>
         <Header fixed title={config.title} />
-        <MainContainer>
+        <Container>
             <PostCardList data={data}/>
-        </MainContainer>
+        </Container>
     </>
 )
+
+const Container = styled.main`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: ${theme.headerHeight}
+`
 
 export const pageQuery = graphql`
     query IndexQuery {

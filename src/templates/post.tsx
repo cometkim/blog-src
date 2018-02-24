@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
-import { Header, MainContainer } from 'components'
+import { Header } from 'components'
 
 import theme from 'utils/theme'
 
@@ -18,18 +18,16 @@ interface BlogPostProps {
 export default ({ data }: BlogPostProps) => (
     <>
         <Header title='< Home'/>
-        <MainContainer>
-            <PostContainer>
-                <PostBody 
-                    className='post-body'
-                    dangerouslySetInnerHTML={{ __html: data.post.html }}
-                />
-            </PostContainer>
-        </MainContainer>
+        <PostContainer>
+            <PostBody
+                className='post-body'
+                dangerouslySetInnerHTML={{ __html: data.post.html }}
+            />
+        </PostContainer>
     </>
 )
 
-const PostContainer = styled.div`
+const PostContainer = styled.main`
     display: flex;
     justify-content: center;
 `
@@ -37,6 +35,8 @@ const PostContainer = styled.div`
 const PostBody = styled.article`
     max-width: ${theme.contentMaxWidth};
     padding: 0 ${theme.contentSidePadding};
+    padding-top: ${theme.headerHeight};
+    box-shadow: 0 0 120px rgba(0, 0, 0, .1);
 `
 
 export const pageQuery = graphql`
