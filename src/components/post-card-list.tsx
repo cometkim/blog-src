@@ -26,7 +26,7 @@ const PostCardList = styled.ul`
 `
 
 const PostCardItem = styled.li`
-    padding-bottom: 28px;
+    padding-bottom: 1.75rem;
     border-bottom: 1px solid ${theme.grayColor};
 `
 

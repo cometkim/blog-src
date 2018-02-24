@@ -72,9 +72,9 @@ const Container = styled.header`
 
 const HomeLink = styled(Link) `
     position: absolute;
-    left: 20px;
+    left: 1.25rem;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
     color: black;
 `

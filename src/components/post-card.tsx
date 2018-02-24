@@ -53,11 +53,11 @@ const Excerpt = styled.p`
 `
 
 const Section = styled.section`
-    margin: 10px 0;
+    margin: .6rem 0;
 `
 
 const Meta = styled.span`
-    margin-right: 10px;
+    margin-right: .6rem;
 `
 
 const TagList = styled.ul`
@@ -67,9 +67,9 @@ const TagList = styled.ul`
 
 const TagItem = styled.li`
     float: left;
-    font-size: 12px;
+    font-size: .75rem;
     background-color: ${theme.grayColor};
     border-radius: 3px;
-    margin-right: 8px;
-    padding: 2px 10px;
+    margin-right: .5rem;
+    padding: .15rem .6rem;
 `

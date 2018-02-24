@@ -2,24 +2,22 @@ import styled from 'styled-components'
 import theme from 'utils/theme'
 
 export default styled.article`
-    overflow: auto;
-
     p {
-        font-size: 17px;
+        font-size: 1.1rem;
     }
 
     blockquote {
         position: relative;
         color: #999;
-        margin: 20px 0;
-        padding-left: 40px;
+        margin: 1.25rem 0;
+        padding-left: 2.5rem;
 
         &:before {
             content: '\u201C';
             position: absolute;
             top: -30px;
             left: 0;
-            font-size: 60px;
+            font-size: 3.75rem;
             font-weight: bold;
         }
     }
