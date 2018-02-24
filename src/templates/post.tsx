@@ -34,6 +34,7 @@ const PostContainer = styled.main`
 
 const PostBody = styled.article`
     max-width: ${theme.contentMaxWidth};
+    overflow: auto;
     padding: 0 ${theme.contentSidePadding};
     padding-top: ${theme.headerHeight};
     box-shadow: 0 0 120px rgba(0, 0, 0, .1);
