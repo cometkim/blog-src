@@ -30,6 +30,13 @@ module.exports = {
             },
         },
         {
+            resolve: 'gatsby-plugin-google-analytics',
+            options: {
+                trackingId: 'UA-71008614-1',
+                head: true,
+            }
+        },
+        {
             resolve: 'gatsby-source-filesystem',
             options: {
                 path: `${__dirname}/blog-posts/posts`,
