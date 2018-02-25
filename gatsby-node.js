@@ -4,6 +4,7 @@ const { createFilePath } = require('gatsby-source-filesystem')
 exports.onPostBuild = () => {
     const googleSiteVerification = 'google0a78cbeb5b51994f.html'
     writeFileSync(`${__dirname}/public/${googleSiteVerification}`, `google-site-verification: ${googleSiteVerification}`)
+    console.log(`\n- Gen ${googleSiteVerification}`)
 }
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {

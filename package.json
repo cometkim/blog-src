@@ -12,7 +12,8 @@
     "main": "n/a",
     "private": true,
     "scripts": {
-        "build": "gatsby build",
+        "update-posts": "git submodule update --init --remote",
+        "build": "yarn update-posts && gatsby build",
         "develop": "gatsby develop",
         "format": "tslint --fix -c tslint.json src/**/*.tsx?",
         "test": "echo \"Error: no test specified\" && exit 1"
