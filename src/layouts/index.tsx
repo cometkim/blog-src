@@ -2,14 +2,12 @@ import * as React from 'react'
 import Helmet from 'react-helmet'
 import { injectGlobal } from 'styled-components'
 
-import config from 'site-config'
-
-interface DefaultLayoutProps {
+interface DefaultLayoutProps extends SiteData {
     children: any
 }
 
-export default ({ children }: DefaultLayoutProps) => {
-    const { title, description, author, keywords } = config
+export default ({ data: { site }, children }: DefaultLayoutProps) => {
+    const { title, description, owner, keywords } = site.siteMetadata
 
     return (
         <>
@@ -17,7 +15,7 @@ export default ({ children }: DefaultLayoutProps) => {
                 {/* 사이트 기본 메타 정보는 대부분의 페이지에서 Override 되며, 생략된 경우만 사용 */}
                 <title>{title}</title>
                 <meta name='description' content={description} />
-                <meta name='author' content={author} />
+                <meta name='author' content={`${owner.name} <${owner.email}>`} />
                 <meta name='keywords' content={keywords.join(', ')} />
             </Helmet>
 
@@ -25,6 +23,22 @@ export default ({ children }: DefaultLayoutProps) => {
         </>
     )
 }
+
+export const pageQuery = graphql`
+    query RootQuery {
+        site {
+            siteMetadata {
+                title
+                description
+                keywords
+                owner {
+                    name
+                    email
+                }
+            }
+        }
+    }
+`
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`

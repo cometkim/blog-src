@@ -1,9 +1,33 @@
 declare const graphql: (query: TemplateStringsArray) => void
 
+declare interface SiteData {
+    data: {
+        site: {
+            siteMetadata: SiteMetadata
+        }
+    }
+}
+
 declare interface AllMarkdownRemarkData {
     data: {
         allMarkdownRemark: AllMarkdownRemark
     }
+}
+
+declare interface SiteMetadata {
+    siteUrl: string
+    owner: SiteOwner
+    title: string
+    description: string
+    keywords: string[]
+}
+
+declare interface SiteOwner {
+    name: string
+    email: string
+    github: string
+    twitter: string
+    gravatar: string
 }
 
 declare interface AllMarkdownRemark {

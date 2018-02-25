@@ -6,14 +6,13 @@ import {
     PostCardList
 } from 'components'
 
-import config from 'site-config'
 import theme from 'utils/theme'
 
-type IndexPageProps = AllMarkdownRemarkData
+export type IndexPageProps = SiteData & AllMarkdownRemarkData
 
 export default ({ data }: IndexPageProps) => (
     <>
-        <Header fixed title={config.title} />
+        <Header fixed title={data.site.siteMetadata.title} />
         <Container>
             <PostCardList data={data}/>
         </Container>
@@ -29,6 +28,11 @@ const Container = styled.main`
 
 export const pageQuery = graphql`
     query IndexQuery {
+        site {
+            siteMetadata {
+                title
+            }
+        }
         allMarkdownRemark(
             sort: { fields: [frontmatter___date], order: DESC }
         ) {
