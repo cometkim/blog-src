@@ -17,6 +17,15 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
             name: 'slug',
             value: slug,
         })
+
+        const path = slug.split('/')
+        if (path.length > 3) {
+            boundActionCreators.createNodeField({
+                node,
+                name: 'series',
+                value: path[2],
+            })
+        }
     }
 }
 
