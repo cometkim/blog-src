@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 import {
     Header,
-    PostCardList
+    PostCardList,
+    Footer,
 } from 'components'
 
 import theme from 'utils/theme'
@@ -16,6 +17,7 @@ export default ({ data }: IndexPageProps) => (
         <Container>
             <PostCardList data={data}/>
         </Container>
+        <Footer owner={data.site.siteMetadata.owner.name} />
     </>
 )
 
@@ -31,6 +33,9 @@ export const pageQuery = graphql`
         site {
             siteMetadata {
                 title
+                owner {
+                    name
+                }
             }
         }
         allMarkdownRemark(

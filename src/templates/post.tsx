@@ -4,29 +4,27 @@ import styled from 'styled-components'
 import {
     Header,
     PostBody,
-    PostLicenseInfo
+    PostLicenseInfo,
+    Footer,
 } from 'components'
 
 import theme from 'utils/theme'
 import 'prismjs/themes/prism.css'
 
-interface BlogPostProps {
-    data: {
-        post: MarkdownRemark
-    }
-}
+type BlogPostProps = SiteData & MarkdownRemarkData
 
 export default ({ data }: BlogPostProps) => (
     <>
-        <Header title='< Home'/>
+        <Header title={data.site.siteMetadata.title} />
         <Container>
             <PostContainer>
                 <PostBody
-                    dangerouslySetInnerHTML={{ __html: data.post.html }}
+                    dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
                 />
                 <PostLicenseInfo />
             </PostContainer>
         </Container>
+        <Footer owner={data.site.siteMetadata.owner.name} />
     </>
 )
 
@@ -45,7 +43,15 @@ const PostContainer = styled.div`
 
 export const pageQuery = graphql`
     query BlogPostByPath($slug: String!) {
-        post: markdownRemark(fields: { slug: { eq: $slug } }) {
+        site {
+            siteMetadata {
+                title
+                owner {
+                    name
+                }
+            }
+        }
+        markdownRemark(fields: { slug: { eq: $slug } }) {
             html
         }
     }
