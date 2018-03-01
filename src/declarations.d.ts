@@ -14,6 +14,12 @@ declare interface AllMarkdownRemarkData {
     }
 }
 
+declare interface MarkdownRemarkData {
+    data: {
+        markdownRemark: MarkdownRemark
+    }
+}
+
 declare interface SiteMetadata {
     siteUrl: string
     owner: SiteOwner
