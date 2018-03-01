@@ -2,6 +2,24 @@ import * as React from 'react'
 import Helmet from 'react-helmet'
 import { injectGlobal } from 'styled-components'
 
+import 'assets/spoqa-han-sans-kr.css'
+import 'assets/source-code-pro.css'
+
+// tslint:disable-next-line:no-unused-expression
+injectGlobal`
+    body {
+        font-family: 'Spoqa Han Sans', sans-serif;
+    }
+
+    pre, code {
+        font-family: 'Source Code Pro', monospace;
+    }
+
+    html, body {
+        margin: 0;
+    }
+`
+
 interface DefaultLayoutProps extends SiteData {
     children: any
 }
@@ -37,15 +55,5 @@ export const pageQuery = graphql`
                 }
             }
         }
-    }
-`
-
-// tslint:disable-next-line:no-unused-expression
-injectGlobal`
-    @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
-
-    body {
-        font-family: 'Noto Sans KR';
-        margin: 0;
     }
 `

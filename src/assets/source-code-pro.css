@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Source Code Pro';
+    font-weight: 700;
+    font-style: normal;
+    src: local('Source Code Pro Bold'),
+         url('/fonts/SourceCodePro/SourceCodePro-Bold.woff2') format('woff2'),
+         url('/fonts/SourceCodePro/SourceCodePro-Bold.woff') format('woff'),
+         url('/fonts/SourceCodePro/SourceCodePro-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    font-weight: 700;
+    font-style: italic;
+    src: local('Source Code Pro Bold'),
+         url('/fonts/SourceCodePro/SourceCodePro-BoldIt.woff2') format('woff2'),
+         url('/fonts/SourceCodePro/SourceCodePro-BoldIt.woff') format('woff'),
+         url('/fonts/SourceCodePro/SourceCodePro-BoldIt.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    font-weight: 400;
+    font-style: normal;
+    src: local('Source Code Pro Regular'),
+         url('/fonts/SourceCodePro/SourceCodePro-Regular.woff2') format('woff2'),
+         url('/fonts/SourceCodePro/SourceCodePro-Regular.woff') format('woff'),
+         url('/fonts/SourceCodePro/SourceCodePro-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    font-weight: 400;
+    font-style: italic;
+    src: local('Source Code Pro Regular'),
+         url('/fonts/SourceCodePro/SourceCodePro-It.woff2') format('woff2'),
+         url('/fonts/SourceCodePro/SourceCodePro-It.woff') format('woff'),
+         url('/fonts/SourceCodePro/SourceCodePro-It.ttf') format('truetype');
+}
