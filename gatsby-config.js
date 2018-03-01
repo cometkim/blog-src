@@ -1,5 +1,7 @@
 const siteUrl = 'https://blog.cometkim.kr'
-
+const title = `Hyeseong's Blog`
+const description = '엔지니어링 관련 있거나 없거나, 잡생각을 모아 지식으로 정리하는 블로그'
+const keywords = ['dev', 'blog', 'web']
 const owner = {
     name: 'Hyeseong Kim',
     email: 'cometkim.kr@gmail.com',
@@ -12,9 +14,9 @@ module.exports = {
     siteMetadata: {
         siteUrl,
         owner,
-        title: `Hyeseong's Blog`,
-        description: '엔지니어링 관련 있거나 없거나, 잡생각을 모아 지식으로 정리하는 블로그',
-        keywords: ['dev', 'blog', 'web'],
+        title,
+        description,
+        keywords,
     },
     plugins: [
         'gatsby-plugin-react-next',
@@ -24,10 +26,21 @@ module.exports = {
         'gatsby-plugin-styled-components',
         'gatsby-plugin-sitemap',
         'gatsby-plugin-feed',
+        'gatsby-plugin-offline',
         {
             resolve: 'gatsby-plugin-canonical-urls',
             options: {
                 siteUrl,
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-manifest',
+            options: {
+                name: title,
+                short_name: title,
+                description,
+                start_url: '/',
+                display: 'minimal-ui',
             },
         },
         {
