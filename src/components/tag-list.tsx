@@ -14,6 +14,7 @@ export default ({ tags }: TagListProps) => (
 )
 
 const TagList = styled.ul`
+    margin: 0;
     padding-left: 0;
     list-style: none;
 `
