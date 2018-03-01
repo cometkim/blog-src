@@ -2,6 +2,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
+import { TagList } from 'components'
+
 import theme from 'utils/theme'
 
 export interface PostCardProps {
@@ -23,11 +25,7 @@ export default ({ slug, title, author, date, tags, excerpt }: PostCardProps) => 
             <Meta><time>{date}</time></Meta>
             <Meta>{author}</Meta>
         </Section>
-        <TagList>
-            {tags.map((tag, index) =>
-                <TagItem key={index}>{tag}</TagItem>
-            )}
-        </TagList>
+        <TagList tags={tags} />
     </Container>
 )
 
@@ -58,18 +56,4 @@ const Section = styled.section`
 
 const Meta = styled.span`
     margin-right: .6rem;
-`
-
-const TagList = styled.ul`
-    padding-left: 0;
-    list-style: none;
-`
-
-const TagItem = styled.li`
-    float: left;
-    font-size: .75rem;
-    background-color: ${theme.grayColor};
-    border-radius: 3px;
-    margin-right: .5rem;
-    padding: .15rem .6rem;
 `
