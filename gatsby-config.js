@@ -23,6 +23,7 @@ module.exports = {
         'gatsby-plugin-typescript',
         'gatsby-plugin-styled-components',
         'gatsby-plugin-sitemap',
+        'gatsby-plugin-feed',
         {
             resolve: 'gatsby-plugin-canonical-urls',
             options: {
