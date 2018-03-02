@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
-import { TagList } from 'components'
+import PostInfo from './post-info'
 
 import theme from 'utils/theme'
 
@@ -21,11 +21,7 @@ export default ({ slug, title, author, date, tags, excerpt }: PostCardProps) => 
             <Title>{title}</Title>
             <Excerpt>{excerpt}</Excerpt>
         </GoToPost>
-        <Section>
-            <Meta><time>{date}</time></Meta>
-            <Meta>{author}</Meta>
-        </Section>
-        <TagList tags={tags} />
+        <PostInfo author={author} date={date} tags={tags} />
     </Container>
 )
 
@@ -48,12 +44,4 @@ const Title = styled.h3`
 `
 
 const Excerpt = styled.p`
-`
-
-const Section = styled.section`
-    margin: .6rem 0;
-`
-
-const Meta = styled.span`
-    margin-right: .6rem;
 `
