@@ -50,7 +50,7 @@ const PostMetaData = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: ${theme.contentSpacing} 0;
+    padding: ${theme.contentSpacing} ${theme.contentSidePadding};
     margin-top: ${theme.contentSpacing};
     border: 1px solid ${theme.grayColor};
 `
@@ -58,6 +58,7 @@ const PostMetaData = styled.section`
 const PostTitle = styled.div`
     font-size: 1.5rem;
     font-weight: bold;
+    text-align: center;
 `
 
 export const pageQuery = graphql`

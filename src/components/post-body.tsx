@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import theme from 'utils/theme'
 
 export default styled.article`
+    word-break: keep-all;
+
     p {
         font-size: 1.1rem;
     }
