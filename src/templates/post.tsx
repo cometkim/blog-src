@@ -6,6 +6,7 @@ import {
     PostInfo,
     PostBody,
     PostLicenseInfo,
+    Utteranc,
     Footer,
 } from 'components'
 
@@ -27,6 +28,11 @@ export default ({ data }: BlogPostProps) => (
                     dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
                 />
                 <PostLicenseInfo />
+                <Utteranc
+                    repo='cometkim/blog-posts'
+                    branch='master'
+                    issueTerm='pathname'
+                />
             </PostContainer>
         </Container>
         <Footer owner={data.site.siteMetadata.owner.name} />
