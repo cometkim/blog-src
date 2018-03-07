@@ -22,13 +22,13 @@ declare interface MarkdownRemarkData {
 
 declare interface SiteMetadata {
     siteUrl: string
-    owner: SiteOwner
+    owner: SiteUser
     title: string
     description: string
     keywords: string[]
 }
 
-declare interface SiteOwner {
+declare interface SiteUser {
     name: string
     email: string
     github: string
