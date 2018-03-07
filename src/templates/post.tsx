@@ -8,6 +8,7 @@ import {
     PostLicenseInfo,
     Utteranc,
     Footer,
+    SiteHelmet,
 } from 'components'
 
 import theme from 'utils/theme'
@@ -15,29 +16,50 @@ import 'prismjs/themes/prism.css'
 
 type BlogPostProps = SiteData & MarkdownRemarkData
 
-export default ({ data }: BlogPostProps) => (
-    <>
-        <Header title={data.site.siteMetadata.title} />
-        <Container>
-            <PostContainer>
-                <PostMetaData>
-                    <PostTitle>{data.markdownRemark.frontmatter.title}</PostTitle>
-                    <PostInfo {...data.markdownRemark.frontmatter}/>
-                </PostMetaData>
-                <PostBody
-                    dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
-                />
-                <PostLicenseInfo />
-                <Utteranc
-                    repo='cometkim/blog-posts'
-                    branch='master'
-                    issueTerm='pathname'
-                />
-            </PostContainer>
-        </Container>
-        <Footer owner={data.site.siteMetadata.owner.name} />
-    </>
-)
+export default ({ data }: BlogPostProps) => {
+    const {
+        siteUrl,
+        title: siteTitle,
+        owner
+    } = data.site.siteMetadata
+
+    const post = {
+        ...data.markdownRemark,
+        ...data.markdownRemark.fields,
+        ...data.markdownRemark.frontmatter,
+    }
+
+    return (
+        <>
+            <SiteHelmet 
+                url={`${siteUrl}${post.slug}`}
+                title={`${siteTitle} - ${post.title}`}
+                description={post.excerpt}
+                author={owner}
+                keywords={post.tags}
+            />
+            <Header title={siteTitle} />
+            <Container>
+                <PostContainer>
+                    <PostMetaData>
+                        <PostTitle>{post.title}</PostTitle>
+                        <PostInfo {...post} />
+                    </PostMetaData>
+                    <PostBody
+                        dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+                    />
+                    <PostLicenseInfo />
+                    <Utteranc
+                        repo='cometkim/blog-posts'
+                        branch='master'
+                        issueTerm='pathname'
+                    />
+                </PostContainer>
+            </Container>
+            <Footer owner={owner.name} />
+        </>
+    )
+}
 
 const Container = styled.main`
     display: flex;
@@ -71,15 +93,21 @@ export const pageQuery = graphql`
     query BlogPostByPath($slug: String!) {
         site {
             siteMetadata {
+                siteUrl
                 title
                 owner {
                     name
+                    email
                 }
             }
         }
 
         markdownRemark(fields: { slug: { eq: $slug } }) {
             html
+            excerpt
+            fields {
+                slug
+            }
             frontmatter {
                 author
                 title
