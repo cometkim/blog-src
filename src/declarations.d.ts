@@ -38,10 +38,17 @@ declare interface SiteUser {
 
 declare interface AllMarkdownRemark {
     edges?: Array<MarkdownRemarkEdge>
+    group: Array<MarkdownRemarkGroup>
 }
 
 declare interface MarkdownRemarkEdge {
     node?: MarkdownRemark
+}
+
+declare interface MarkdownRemarkGroup {
+    edges: Array<MarkdownRemarkEdge>
+    fieldValue: string
+    totalCount: number
 }
 
 declare interface MarkdownRemark {
@@ -71,4 +78,5 @@ declare interface Frontmatter {
 
 declare interface Fields {
     slug: string
+    series: string
 }
