@@ -61,7 +61,7 @@ const SeriesItem = styled.li`
 `
 
 export const pageQuery = graphql`
-    query SeriesQuery {
+    query AllSeriesQuery {
         site {
             siteMetadata {
                 title
