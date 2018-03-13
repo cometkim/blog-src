@@ -107,6 +107,7 @@ export const pageQuery = graphql`
             excerpt
             fields {
                 slug
+                series
             }
             frontmatter {
                 author
