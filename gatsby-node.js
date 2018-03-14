@@ -30,7 +30,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 }
 
 exports.createPages = async ({ boundActionCreators, graphql }) => {
-    const query = `{
+    const postQuery = `{
         posts: allMarkdownRemark {
             edges {
                 node {
@@ -41,19 +41,39 @@ exports.createPages = async ({ boundActionCreators, graphql }) => {
             }
         }
     }`
-    const { data, errors } = await graphql(query);
-
-    if (errors) {
+    const postData = await graphql(postQuery);
+    if (postData.errors) {
         throw new Error(errors);
     }
-
-    data.posts.edges
+    postData.data.posts.edges
         .map(e => e.node)
         .map(n => n.fields.slug)
         .map(slug => ({
             path: slug,
             component: `${__dirname}/src/templates/post.tsx`,
             context: { slug },
+        }))
+        .forEach(ctx => boundActionCreators.createPage(ctx))
+
+    const seriesQuery = `{
+        posts: allMarkdownRemark(
+            filter: { fields: { series: { ne: null } } }
+        ){
+            group(field: fields___series){
+                series: fieldValue
+            }
+        }
+    }`
+    const seriesData = await graphql(seriesQuery)
+    if (seriesData.errors) {
+        throw new Error(errors)
+    }
+    seriesData.data.posts.group
+        .map(group => group.series)
+        .map(series => ({
+            path: `/series/${series}`,
+            component: `${__dirname}/src/templates/series.tsx`,
+            context: { series },
         }))
         .forEach(ctx => boundActionCreators.createPage(ctx))
 }

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import Link from 'gatsby-link'
 
 import TagList from './tag-list'
 
@@ -7,13 +8,17 @@ interface PostInfoProps {
     author: string
     date: string
     tags: string[]
+    series?: string
 }
 
-export default ({ author, date, tags }: PostInfoProps) => (
+export default ({ author, date, tags, series }: PostInfoProps) => (
     <>
         <Container>
             <Info>{author}</Info>
             <Info><time>{date}</time></Info>
+            {series ?
+                <Info><Link to={`/series/${series}`}>{series}</Link></Info>
+            : null}
         </Container>
         <TagList tags={tags} />
     </>

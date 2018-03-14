@@ -13,15 +13,16 @@ export interface PostCardProps {
     date: string
     tags: string[]
     excerpt: string
+    series?: string
 }
 
-export default ({ slug, title, author, date, tags, excerpt }: PostCardProps) => (
+export default ({ slug, title, author, date, tags, excerpt, series }: PostCardProps) => (
     <Container>
         <GoToPost to={slug}>
             <Title>{title}</Title>
             <Excerpt>{excerpt}</Excerpt>
         </GoToPost>
-        <PostInfo author={author} date={date} tags={tags} />
+        <PostInfo author={author} date={date} tags={tags} series={series} />
     </Container>
 )
 

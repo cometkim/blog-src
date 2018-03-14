@@ -9,15 +9,36 @@ import {
 
 import theme from 'utils/theme'
 
-export type IndexPageProps = SiteData & AllMarkdownRemarkData
+type Context = {
+    pathContext: {
+        series: string,
+    },
+}
 
-export default ({ data }: IndexPageProps) => (
+export default ({
+    pathContext: {
+        series,
+    },
+    data,
+    data: {
+        site: {
+            siteMetadata: {
+                title,
+                owner,
+            },
+        },
+        allMarkdownRemark: {
+            edges
+        }
+    },
+}: Context & SiteData & AllMarkdownRemarkData) => (
     <>
-        <Header fixed title={data.site.siteMetadata.title} />
+        <Header fixed title={title} />
         <Container>
+            <SeriesSummary>{series}: {edges.length}개의 글이 있습니다.</SeriesSummary>
             <PostCardList data={data}/>
         </Container>
-        <Footer owner={data.site.siteMetadata.owner.name} />
+        <Footer owner={owner.name} />
     </>
 )
 
@@ -25,11 +46,18 @@ const Container = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: ${theme.headerHeight}
+    justify-content: center;
+    padding-top: ${theme.headerHeight};
+`
+
+const SeriesSummary = styled.div`
+    font-size: 1.3rem;
+    margin-top: ${theme.contentSpacing};
+    padding: 0 ${theme.contentSidePadding};
 `
 
 export const pageQuery = graphql`
-    query IndexQuery {
+    query SeriesQuery($series: String!) {
         site {
             siteMetadata {
                 title
@@ -40,12 +68,12 @@ export const pageQuery = graphql`
         }
         allMarkdownRemark(
             sort: { fields: [frontmatter___date], order: DESC }
+            filter: { fields: { series: { eq: $series } } }
         ) {
             edges {
                 node {
                     fields {
                         slug
-                        series
                     }
                     excerpt
                     frontmatter {

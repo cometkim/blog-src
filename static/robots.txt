@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /series
 Sitemap: https://blog.cometkim.kr/sitemap.xml
