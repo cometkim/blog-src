@@ -16,6 +16,8 @@
 - [Nesoy Blog](https://nesoy.github.io/)
 - [DailyEngineering](https://hyunseob.github.io/)
 - [kakao 기술 블로그](http://tech.kakao.com/)
+- [Rinae's playground](https://emaren84.github.io/)
+- [Subicura's Blog](https://subicura.com/)
 
 ## LICENSE
 
