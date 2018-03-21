@@ -37,6 +37,7 @@
         "gatsby-plugin-typescript": "^1.4.16",
         "gatsby-remark-autolink-headers": "^1.4.12",
         "gatsby-remark-copy-linked-files": "^1.5.28",
+        "gatsby-remark-emojis": "^0.2.3",
         "gatsby-remark-images": "^1.5.50",
         "gatsby-remark-prismjs": "^1.2.15",
         "gatsby-source-filesystem": "^1.5.23",

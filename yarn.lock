@@ -3806,6 +3806,10 @@ gatsby-remark-copy-linked-files@^1.5.28:
     probe-image-size "^3.2.0"
     unist-util-visit "^1.1.1"
 
+gatsby-remark-emojis@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-emojis/-/gatsby-remark-emojis-0.2.3.tgz#a4e310f9532dc5425a35b9c9ec28545bfa5f94da"
+
 gatsby-remark-images@^1.5.50:
   version "1.5.50"
   resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-1.5.50.tgz#695022db8f84385782afbb57bc57c36572367469"
