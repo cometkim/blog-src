@@ -68,6 +68,14 @@ module.exports = {
                             maxWidth: 590,
                         },
                     },
+                    {
+                        resolve: 'gatsby-remark-emojis',
+                        options: {
+                            active: true,
+                            class: 'emoji-icon',
+                            size: 24,
+                        },
+                    },
                     'gatsby-remark-copy-linked-files',
                     'gatsby-remark-prismjs',
                     'gatsby-remark-autolink-headers',
