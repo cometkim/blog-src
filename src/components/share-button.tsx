@@ -18,6 +18,7 @@ type SocialIntentInfo = {
 
 type ShareButtonProps = {
     url: string,
+    size: number,
 }
 
 const createShareButton = ({ intentUrl, urlParam, icon, color }: SocialIntentInfo) => {
@@ -33,8 +34,7 @@ const createShareButton = ({ intentUrl, urlParam, icon, color }: SocialIntentInf
             const IconLink = styled.a`
                 text-decoration: none;
                 color: lightgray;
-                transition: color .5s ease;
-
+                transition: color .2s ease;
                 :hover {
                     color: ${color};
                 }
@@ -45,7 +45,7 @@ const createShareButton = ({ intentUrl, urlParam, icon, color }: SocialIntentInf
                     href={this.url}
                     onClick={this.handleClick}
                 >
-                    <Icon icon={icon} />
+                    <Icon icon={icon} size={this.props.size}/>
                 </IconLink>
             )
         }
@@ -63,12 +63,12 @@ export default {
         intentUrl: 'https://www.facebook.com/sharer/sharer.php',
         urlParam: 'u',
         icon: facebook,
-        color: '',
+        color: '#4267b2',
     }),
     GooglePlus: createShareButton({
         intentUrl: 'https://plus.google.com/share',
         urlParam: 'url',
         icon: googlePlus,
-        color: '',
+        color: '#db4437',
     }),
 }
