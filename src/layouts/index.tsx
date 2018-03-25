@@ -4,17 +4,18 @@ import { injectGlobal } from 'styled-components'
 
 import { SiteHelmet } from 'components'
 
-import 'assets/spoqa-han-sans-kr.css'
-import 'assets/source-code-pro.css'
+import 'assets/hack-subset.css'
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
+    @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
     body {
-        font-family: 'Spoqa Han Sans', sans-serif;
+        font-family: 'Noto Sans KR', sans-serif;
     }
 
     pre, code {
-        font-family: 'Source Code Pro', monospace;
+        font-family: 'Hack', monospace;
     }
 
     html, body {
