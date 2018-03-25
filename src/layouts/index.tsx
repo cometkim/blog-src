@@ -4,7 +4,6 @@ import { injectGlobal } from 'styled-components'
 
 import { SiteHelmet } from 'components'
 
-import 'assets/spoqa-han-sans-kr.css'
 import 'assets/hack-subset.css'
 
 // tslint:disable-next-line:no-unused-expression
