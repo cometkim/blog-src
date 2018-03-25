@@ -5,7 +5,7 @@ import { injectGlobal } from 'styled-components'
 import { SiteHelmet } from 'components'
 
 import 'assets/spoqa-han-sans-kr.css'
-import 'assets/source-code-pro.css'
+import 'assets/hack-subset.css'
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
@@ -16,7 +16,7 @@ injectGlobal`
     }
 
     pre, code {
-        font-family: 'Source Code Pro', monospace;
+        font-family: 'Hack', monospace;
     }
 
     html, body {
