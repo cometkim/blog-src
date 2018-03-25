@@ -76,4 +76,27 @@ exports.createPages = async ({ boundActionCreators, graphql }) => {
             context: { series },
         }))
         .forEach(ctx => boundActionCreators.createPage(ctx))
+
+    const tagsQuery = `{
+        posts: allMarkdownRemark(
+            filter: { frontmatter: { tags: { ne: null } } }
+        ) {
+            group(field: frontmatter___tags) {
+                tag: fieldValue
+            }
+        }
+    }
+    `
+    const tagsData = await graphql(tagsQuery)
+    if (tagsData.errors) {
+        throw new Error(tagsData.errors)
+    }
+    tagsData.data.posts.group
+        .map(group => group.tag)
+        .map(tag => ({
+            path: `/tags/${tag}`,
+            component: `${__dirname}/src/templates/tag.tsx`,
+            context: { tag },
+        }))
+        .forEach(ctx => boundActionCreators.createPage(ctx))
 }
