@@ -9,8 +9,10 @@ import 'assets/source-code-pro.css'
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
+    @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
     body {
-        font-family: 'Spoqa Han Sans', sans-serif;
+        font-family: 'Noto Sans KR', sans-serif;
     }
 
     pre, code {
