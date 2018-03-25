@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import Link from 'gatsby-link'
 
 import theme from 'utils/theme'
 
@@ -9,7 +10,11 @@ export interface TagListProps {
 
 export default ({ tags }: TagListProps) => (
     <TagList>
-        {tags.map((tag, index) => <TagItem key={index}>{tag}</TagItem>)}
+        {tags.map((tag, index) => (
+            <Link to={`/tags/${tag}`}>
+                <TagItem key={index}>{tag}</TagItem>
+            </Link>
+        ))}
     </TagList>
 )
 
@@ -24,6 +29,6 @@ const TagItem = styled.li`
     font-size: .75rem;
     background-color: ${theme.grayColor};
     border-radius: 3px;
-    margin-right: .5rem;
+    margin: .2rem;
     padding: .15rem .6rem;
 `
