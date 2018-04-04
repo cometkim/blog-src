@@ -114,3 +114,71 @@ const MyButton = styled.button`
 - UI 콜백은 메서드로 선언하고, 절대 익명함수나 `.bind()`를 `render()` 안에서 사용하지 않는다.
 - 컴포넌트 클래스의 라이프사이클 메서드는 외 모든 커스텀 메서드는 Class Property + Arrow Fucntion 문법을 활용해 정의한다. (사실 constructor에서 직접 바인딩 해주는 것이 더 나을 것이다. 나중에 변경할 것)
 - 옵셔널로 선언한 프로퍼티에 대해서 `Partial`을 활용해서 디폴트 값을 정의해준다.
+
+### Gatsby 페이지 템플릿
+
+```tsx
+import * as React from 'react'
+import styled from 'styled-components'
+
+import {
+    PostList,
+} from 'components'
+
+export default ({
+    data: {
+        allMarkdownRemark: {
+            edges
+        }
+    }
+}: AllMarkdownRemarkData) => {
+    const posts = edges.map(e => e.node)
+
+    return (
+        <Container>
+            <PostList posts={posts} />
+        </Container>
+    )
+}
+
+const Container = styled.div`
+    display: flex;
+`
+
+export pageQuery = graphql`
+    query MyTemplateQuery {
+        allMarkdownRemark {
+            edges {
+                post: node {
+                    frontmatter {
+                        title
+                    }
+                }
+            }
+        }
+    }
+`
+```
+
+- imports, defaults, styled-components, pageQuery 순서로 작성
+
+### Gatsby 페이지 - 템플릿 사용
+
+```tsx
+import * as React from 'react'
+
+import {
+    MyPageTemplate,
+} from 'templates'
+
+export default MyPageTemplate
+
+export pageQuery = graphql`
+    query MyPageQuery {
+        ...
+    }
+`
+```
+
+- 기존 템플릿 import 후, 그대로 export해서 사용
+- pageQuery 만 바꿔서 export 하면 data 만 바꿔서 기존 템플릿 재사용 가능
