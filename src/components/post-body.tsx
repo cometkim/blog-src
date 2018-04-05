@@ -36,7 +36,7 @@ export default styled.article`
         }
     }
 
-    code {
+    & :not(pre) > code {
         font-size: .8rem;
         padding: .15rem .4rem;
         background-color: ${theme.grayColor};
