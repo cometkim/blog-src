@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import { injectGlobal } from 'styled-components'
 
 import { SiteHelmet } from 'components'
+import theme from 'utils/theme'
 
 import 'assets/hack-subset.css'
 
@@ -12,6 +13,18 @@ injectGlobal`
 
     body {
         font-family: 'Noto Sans KR', sans-serif;
+        word-break: keep-all;
+        color: ${theme.blackColor};
+    }
+
+    a {
+        color: ${theme.blackColor};
+        text-decoration: none;
+        transition: color .2s ease;
+
+        :focus, :hover, :active {
+            color: ${theme.primaryColor};
+        }
     }
 
     pre, code {

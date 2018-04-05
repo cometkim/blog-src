@@ -32,12 +32,7 @@ const Container = styled.div`
 `
 
 const GoToPost = styled(Link) `
-    text-decoration: none;
-    color: black;
-
-    :hover {
-        text-decoration: underline;
-    }
+    color: ${theme.blackColor};
 `
 
 const Title = styled.h3`
@@ -45,4 +40,5 @@ const Title = styled.h3`
 `
 
 const Excerpt = styled.p`
+    font-weight: 200;
 `

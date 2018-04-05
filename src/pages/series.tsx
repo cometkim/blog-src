@@ -45,6 +45,7 @@ const Container = styled.main`
 
 const Summary = styled.div`
     font-size: 1.25rem;
+    font-weight: 500;
     margin: ${theme.contentSpacing} 0;
 `
 

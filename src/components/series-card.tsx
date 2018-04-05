@@ -17,14 +17,8 @@ export default ({ name, count }: SeriesCardProps) => (
 )
 
 const SeriesLink = styled(Link)`
-    text-decoration: none;
-    color: #000;
     font-size: 1.25rem;
     font-weight: bold;
-
-    :hover {
-        text-decoration: underline;
-    }
 `
 
 const PostCount = styled.div`

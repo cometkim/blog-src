@@ -1,13 +1,24 @@
 import styled from 'styled-components'
 import theme from 'utils/theme'
 
-export default styled.article`
-    word-break: keep-all;
+import 'assets/prism-atom-dark.css'
 
-    p {
-        font-size: 1.1rem;
+export default styled.article`
+    font-weight: 300;
+
+    a {
+        color: ${theme.primaryColor};
+        font-weight: 400;
+
+        :focus, :active, :hover {
+            text-decoration: underline;
+        }
     }
 
+    strong {
+        font-weight: 500;
+    }
+    
     blockquote {
         position: relative;
         color: #999;
@@ -22,5 +33,16 @@ export default styled.article`
             font-size: 3.75rem;
             font-weight: bold;
         }
+    }
+
+    & :not(pre) > code {
+        font-size: .8rem;
+        padding: .15rem .4rem;
+        background-color: ${theme.grayColor};
+        border-radius: 3px;
+    }
+
+    ul {
+        padding-left: 1.5rem;
     }
 `
