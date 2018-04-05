@@ -33,4 +33,11 @@ export default styled.article`
             font-weight: bold;
         }
     }
+
+    code {
+        font-size: .8rem;
+        padding: .15rem .4rem;
+        background-color: ${theme.grayColor};
+        border-radius: 3px;
+    }
 `
