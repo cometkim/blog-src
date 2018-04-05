@@ -76,5 +76,5 @@ const HomeLink = styled(Link) `
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
-    color: black;
+    color: ${theme.blackColor};
 `

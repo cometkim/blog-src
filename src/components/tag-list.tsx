@@ -11,9 +11,9 @@ export interface TagListProps {
 export default ({ tags }: TagListProps) => (
     <TagList>
         {tags.map((tag, index) => (
-            <Link to={`/tags/${tag}`}>
-                <TagItem key={index}>{tag}</TagItem>
-            </Link>
+            <TagItem key={index}>
+                <TagLink to={`/tags/${tag}`}>{tag}</TagLink>
+            </TagItem>
         ))}
     </TagList>
 )
@@ -22,6 +22,10 @@ const TagList = styled.ul`
     margin: 0;
     padding-left: 0;
     list-style: none;
+`
+
+const TagLink = styled(Link)`
+    color: ${theme.blackColor};
 `
 
 const TagItem = styled.li`

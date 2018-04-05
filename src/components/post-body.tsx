@@ -3,11 +3,21 @@ import theme from 'utils/theme'
 
 export default styled.article`
     word-break: keep-all;
+    font-weight: 300;
 
-    p {
-        font-size: 1.1rem;
+    a {
+        color: ${theme.primaryColor};
+        font-weight: 400;
+
+        :focus, :active, :hover {
+            text-decoration: underline;
+        }
     }
 
+    strong {
+        font-weight: 500;
+    }
+    
     blockquote {
         position: relative;
         color: #999;
