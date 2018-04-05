@@ -35,7 +35,7 @@ export default ({
     <>
         <Header fixed title={title} />
         <Container>
-            <SeriesSummary>{series}: {edges.length}개의 글이 있습니다.</SeriesSummary>
+            <Summary>{series}</Summary>
             <PostCardList data={data}/>
         </Container>
         <Footer owner={owner.name} />
@@ -50,8 +50,9 @@ const Container = styled.main`
     padding-top: ${theme.headerHeight};
 `
 
-const SeriesSummary = styled.div`
+const Summary = styled.div`
     font-size: 1.3rem;
+    font-weight: 500;
     margin-top: ${theme.contentSpacing};
     padding: 0 ${theme.contentSidePadding};
 `
