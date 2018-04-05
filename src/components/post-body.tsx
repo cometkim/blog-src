@@ -41,4 +41,8 @@ export default styled.article`
         background-color: ${theme.grayColor};
         border-radius: 3px;
     }
+
+    ul {
+        padding-left: 1.5rem;
+    }
 `
