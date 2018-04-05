@@ -12,7 +12,6 @@ import {
 } from 'components'
 
 import theme from 'utils/theme'
-import 'prismjs/themes/prism.css'
 
 type BlogPostProps = SiteData & MarkdownRemarkData
 

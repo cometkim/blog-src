@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import theme from 'utils/theme'
 
+import 'assets/prism-atom-dark.css'
+
 export default styled.article`
     word-break: keep-all;
     font-weight: 300;
