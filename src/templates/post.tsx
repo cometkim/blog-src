@@ -73,7 +73,7 @@ const PostContainer = styled.div`
     box-shadow: 0 0 120px rgba(0, 0, 0, .1);
 `
 
-const PostMetaData = styled.section`
+const PostMetaData = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
