@@ -11,7 +11,7 @@ export type SeriesCardProps = {
 
 export default ({ name, count }: SeriesCardProps) => (
     <>
-        <SeriesLink to={`/series/${name}`}>{name}</SeriesLink>
+        <SeriesLink to={`/series/${name}/`}>{name}</SeriesLink>
         <PostCount>{count}개의 포스트가 있습니다.</PostCount>
     </>
 )

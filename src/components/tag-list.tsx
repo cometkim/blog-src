@@ -12,7 +12,7 @@ export default ({ tags }: TagListProps) => (
     <TagList>
         {tags.map((tag, index) => (
             <TagItem key={index}>
-                <TagLink to={`/tags/${tag}`}>{tag}</TagLink>
+                <TagLink to={`/tags/${tag}/`}>{tag}</TagLink>
             </TagItem>
         ))}
     </TagList>

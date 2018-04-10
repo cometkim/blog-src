@@ -17,7 +17,7 @@ export default ({ author, date, tags, series }: PostInfoProps) => (
             <Info>{author}</Info>
             <Info><time>{date}</time></Info>
             {series ?
-                <Info><Link to={`/series/${series}`}>{series}</Link></Info>
+                <Info><Link to={`/series/${series}/`}>{series}</Link></Info>
             : null}
         </Container>
         <TagList tags={tags} />
