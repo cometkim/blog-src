@@ -8,7 +8,6 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
             node,
             getNode,
             basePath: 'blog-posts/posts',
-            trailingSlash: false,
         })
         console.log(`\n- Gen Slug: ${slug}`)
 
@@ -71,7 +70,7 @@ exports.createPages = async ({ boundActionCreators, graphql }) => {
     seriesData.data.posts.group
         .map(group => group.series)
         .map(series => ({
-            path: `/series/${series}`,
+            path: `/series/${series}/`,
             component: `${__dirname}/src/templates/series.tsx`,
             context: { series },
         }))
@@ -94,7 +93,7 @@ exports.createPages = async ({ boundActionCreators, graphql }) => {
     tagsData.data.posts.group
         .map(group => group.tag)
         .map(tag => ({
-            path: `/tags/${tag}`,
+            path: `/tags/${tag}/`,
             component: `${__dirname}/src/templates/tag.tsx`,
             context: { tag },
         }))
