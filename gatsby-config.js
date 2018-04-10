@@ -28,6 +28,7 @@ module.exports = {
         'gatsby-plugin-feed',
         'gatsby-plugin-offline',
         'gatsby-plugin-netlify',
+        'gatsby-plugin-sharp',
         {
             resolve: 'gatsby-plugin-canonical-urls',
             options: {
@@ -61,9 +62,7 @@ module.exports = {
         {
             resolve: 'gatsby-transformer-remark',
             options: {
-                plugins: [
-                    'gatsby-plugin-sharp',
-                    {
+                plugins: [{
                         resolve: 'gatsby-remark-images',
                         options: {
                             maxWidth: 590,
