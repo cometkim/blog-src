@@ -4,11 +4,13 @@ exports.onPostBuild = () => {}
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
     if (node.internal.type === 'MarkdownRemark') {
-        const slug = '/posts' + createFilePath({
+        const categorySlug = '/posts'
+        const postSlug = createFilePath({
             node,
             getNode,
             basePath: 'blog-posts/posts',
         })
+        const slug = categorySlug + postSlug
         console.log(`\n- Gen Slug: ${slug}`)
 
         boundActionCreators.createNodeField({
@@ -17,12 +19,16 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
             value: slug,
         })
 
-        const path = slug.split('/')
-        if (path.length > 3) {
+        const trimSlash = slug => slug.slice(
+            1, // the slug is always began with `/`
+            slug.endsWith('/') ? -1 : 0,
+        )
+        const [series, name] = trimSlash(postSlug).split('/')
+        if (name) {
             boundActionCreators.createNodeField({
                 node,
                 name: 'series',
-                value: path[2],
+                value: series,
             })
         }
     }
