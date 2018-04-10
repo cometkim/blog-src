@@ -12,7 +12,7 @@ export default ({ owner }: FooterProps) => (
     <Container>
         <Section>
             {`© 2018 `}
-            <Link to='/about'>{owner}</Link>
+            <Link to='/about/'>{owner}</Link>
         </Section>
         <Section>
             {`Powered by `}

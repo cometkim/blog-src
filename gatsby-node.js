@@ -4,12 +4,13 @@ exports.onPostBuild = () => {}
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
     if (node.internal.type === 'MarkdownRemark') {
-        const slug = '/posts' + createFilePath({
+        const categorySlug = '/posts'
+        const postSlug = createFilePath({
             node,
             getNode,
             basePath: 'blog-posts/posts',
-            trailingSlash: false,
         })
+        const slug = categorySlug + postSlug
         console.log(`\n- Gen Slug: ${slug}`)
 
         boundActionCreators.createNodeField({
@@ -18,12 +19,16 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
             value: slug,
         })
 
-        const path = slug.split('/')
-        if (path.length > 3) {
+        const trimSlash = slug => slug.slice(
+            1, // the slug is always began with `/`
+            slug.endsWith('/') ? -1 : 0,
+        )
+        const [series, name] = trimSlash(postSlug).split('/')
+        if (name) {
             boundActionCreators.createNodeField({
                 node,
                 name: 'series',
-                value: path[2],
+                value: series,
             })
         }
     }
@@ -71,7 +76,7 @@ exports.createPages = async ({ boundActionCreators, graphql }) => {
     seriesData.data.posts.group
         .map(group => group.series)
         .map(series => ({
-            path: `/series/${series}`,
+            path: `/series/${series}/`,
             component: `${__dirname}/src/templates/series.tsx`,
             context: { series },
         }))
@@ -94,7 +99,7 @@ exports.createPages = async ({ boundActionCreators, graphql }) => {
     tagsData.data.posts.group
         .map(group => group.tag)
         .map(tag => ({
-            path: `/tags/${tag}`,
+            path: `/tags/${tag}/`,
             component: `${__dirname}/src/templates/tag.tsx`,
             context: { tag },
         }))
