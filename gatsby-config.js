@@ -27,6 +27,7 @@ module.exports = {
         'gatsby-plugin-sitemap',
         'gatsby-plugin-feed',
         'gatsby-plugin-offline',
+        'gatsby-plugin-netlify',
         {
             resolve: 'gatsby-plugin-canonical-urls',
             options: {
