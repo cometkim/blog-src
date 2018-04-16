@@ -29,6 +29,7 @@ module.exports = {
         'gatsby-plugin-offline',
         'gatsby-plugin-netlify',
         'gatsby-plugin-sharp',
+        'gatsby-plugin-twitter',
         {
             resolve: 'gatsby-plugin-canonical-urls',
             options: {
