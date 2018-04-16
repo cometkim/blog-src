@@ -41,6 +41,7 @@
         "gatsby-remark-emojis": "^0.2.3",
         "gatsby-remark-external-links": "^0.0.4",
         "gatsby-remark-images": "^1.5.60",
+        "gatsby-remark-katex": "^1.0.13",
         "gatsby-remark-prismjs": "^1.2.24",
         "gatsby-remark-responsive-iframe": "^1.4.18",
         "gatsby-source-filesystem": "^1.5.29",

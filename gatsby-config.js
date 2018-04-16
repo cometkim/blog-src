@@ -83,6 +83,7 @@ module.exports = {
                     'gatsby-remark-embed-youtube',
                     'gatsby-remark-responsive-iframe',
                     'gatsby-remark-external-links',
+                    'gatsby-remark-katex',
                 ],
             },
         },
