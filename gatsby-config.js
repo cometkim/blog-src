@@ -82,6 +82,7 @@ module.exports = {
                     'gatsby-remark-autolink-headers',
                     'gatsby-remark-embed-youtube',
                     'gatsby-remark-responsive-iframe',
+                    'gatsby-remark-external-links',
                 ],
             },
         },
