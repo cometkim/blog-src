@@ -28,6 +28,8 @@ module.exports = {
         'gatsby-plugin-feed',
         'gatsby-plugin-offline',
         'gatsby-plugin-netlify',
+        'gatsby-plugin-sharp',
+        'gatsby-plugin-twitter',
         {
             resolve: 'gatsby-plugin-canonical-urls',
             options: {
@@ -61,9 +63,7 @@ module.exports = {
         {
             resolve: 'gatsby-transformer-remark',
             options: {
-                plugins: [
-                    'gatsby-plugin-sharp',
-                    {
+                plugins: [{
                         resolve: 'gatsby-remark-images',
                         options: {
                             maxWidth: 590,
@@ -80,8 +80,12 @@ module.exports = {
                     'gatsby-remark-copy-linked-files',
                     'gatsby-remark-prismjs',
                     'gatsby-remark-autolink-headers',
-                ]
-            }
-        }
-    ]
+                    'gatsby-remark-embed-youtube',
+                    'gatsby-remark-responsive-iframe',
+                    'gatsby-remark-external-links',
+                    'gatsby-remark-katex',
+                ],
+            },
+        },
+    ],
 }
