@@ -1,4 +1,4 @@
-import styled, { injectGlobal } from 'styled-components'
+import styled from 'styled-components'
 import theme from 'utils/theme'
 
 import 'assets/prism-atom-dark.css'
@@ -44,15 +44,5 @@ export default styled.article`
 
     ul {
         padding-left: 1.5rem;
-    }
-`
-
-// Temporary hot-fix 
-injectGlobal`
-    article :not(pre) > code {
-        font-size: .8rem;
-        padding: .15rem .4rem;
-        background-color: ${theme.grayColor};
-        border-radius: 3px;
     }
 `
