@@ -1,7 +1,5 @@
 const { createFilePath } = require('gatsby-source-filesystem')
 
-exports.onPostBuild = () => {}
-
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
     if (node.internal.type === 'MarkdownRemark') {
         const categorySlug = '/posts'
