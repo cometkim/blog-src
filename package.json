@@ -25,11 +25,18 @@
             "/node_modules/",
             "/.cache/"
         ],
+        "modulePaths": [
+            "<rootDir>/src/"
+        ],
+        "moduleNameMapper": {
+            "gatsby-node": "<rootDir>/gatsby-node.js"
+        },
         "moduleFileExtensions": [
             "js",
             "jsx",
             "ts",
-            "tsx"
+            "tsx",
+            "json"
         ],
         "transform": {
             "^.+\\.tsx?$": "ts-jest"
