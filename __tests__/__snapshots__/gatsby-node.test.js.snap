@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gatsby Node 페이지 생성 쿼리 스냅샷: createPostPages 1`] = `
+"{
+            posts: allMarkdownRemark {
+                edges {
+                    node {
+                        fields {
+                            slug
+                        }
+                    }
+                }
+            }
+        }"
+`;
+
+exports[`Gatsby Node 페이지 생성 쿼리 스냅샷: createSeriesPages 1`] = `
+"{
+            posts: allMarkdownRemark(
+                filter: { fields: { series: { ne: null } } }
+            ){
+                group(field: fields___series){
+                    series: fieldValue
+                }
+            }
+        }"
+`;
+
+exports[`Gatsby Node 페이지 생성 쿼리 스냅샷: createTagPages 1`] = `
+"{
+            posts: allMarkdownRemark(
+                filter: { frontmatter: { tags: { ne: null } } }
+            ) {
+                group(field: frontmatter___tags) {
+                    tag: fieldValue
+                }
+            }
+        }"
+`;

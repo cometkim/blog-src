@@ -10,6 +10,7 @@ const redirects = [
 
 const creators = [
     {
+        id: 'createPostPages',
         query: `{
             posts: allMarkdownRemark {
                 edges {
@@ -33,6 +34,7 @@ const creators = [
         },
     },
     {
+        id: 'createSeriesPages',
         query: `{
             posts: allMarkdownRemark(
                 filter: { fields: { series: { ne: null } } }
@@ -53,6 +55,7 @@ const creators = [
         },
     },
     {
+        id: 'createTagPages',
         query: `{
             posts: allMarkdownRemark(
                 filter: { frontmatter: { tags: { ne: null } } }

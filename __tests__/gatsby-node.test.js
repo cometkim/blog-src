@@ -6,6 +6,10 @@ const {
 } = require('gatsby-node')._node
 
 describe('Gatsby Node', () => {
+    test('페이지 생성 쿼리 스냅샷', () => {
+        creators.forEach(({ id, query })=> expect(query).toMatchSnapshot(id))
+    })
+
     test('buildSlug', () => {
         const postSlug = '/post'
         const context = {

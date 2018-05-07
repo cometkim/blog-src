@@ -20,7 +20,7 @@
     },
     "jest": {
         "verbose": true,
-        "testRegex": "/__tests__/.*|(\\.|/)test\\.(js|ts)x?$",
+        "testRegex": "/__tests__/.*\\.test\\.(js|ts)x?$",
         "testPathIgnorePatterns": [
             "/node_modules/",
             "/.cache/"
