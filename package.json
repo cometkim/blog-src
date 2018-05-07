@@ -16,7 +16,29 @@
         "build": "yarn update-posts && gatsby build",
         "develop": "gatsby develop",
         "format": "tslint --fix -c tslint.json src/**/*.tsx?",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest"
+    },
+    "jest": {
+        "verbose": true,
+        "testRegex": "/__tests__/.*|(\\.|/)test\\.(js|ts)x?$",
+        "testPathIgnorePatterns": [
+            "/node_modules/",
+            "/.cache/"
+        ],
+        "moduleFileExtensions": [
+            "js",
+            "jsx",
+            "ts",
+            "tsx"
+        ],
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest"
+        },
+        "globals": {
+            "ts-jest": {
+                "useBabelrc": true
+            }
+        }
     },
     "dependencies": {
         "gatsby": "^1.9.247",
@@ -51,6 +73,7 @@
         "styled-components": "^3.2.6"
     },
     "devDependencies": {
+        "@types/jest": "^22.2.3",
         "@types/node": "^9.4.6",
         "@types/react": "^16.0.38",
         "@types/react-dom": "^16.0.4",
@@ -58,6 +81,8 @@
         "babel-plugin-styled-components": "^1.5.1",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "caniuse-db": "^1.0.30000827",
+        "jest": "^22.4.3",
+        "ts-jest": "^22.4.4",
         "tslint": "^5.9.1",
         "typescript": "^2.8.1"
     }
