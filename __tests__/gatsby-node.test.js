@@ -28,4 +28,21 @@ describe('Gatsby Node', () => {
         expect(result.slug).toEqual(expected.slug)
         expect(result.postSlug).toEqual(expected.postSlug)
     })
+
+    test('buildSeries', () => {
+        [
+            {
+                slug: '/post/',
+                expected: null,
+            },
+            {
+                slug: '/series/post/',
+                expected: 'series',
+            }
+        ]
+        .forEach(({ slug: postSlug, expected }) => {
+            const { series } = buildSeries({ postSlug })
+            expect(series).toEqual(expected)
+        })
+    })
 })
