@@ -1,3 +1,5 @@
+const { resolve } = require('path')
+
 const {
     creators,
     redirects,
@@ -12,6 +14,34 @@ describe('Gatsby Node', () => {
 
     test('페이지 리디렉션 스냅샷', () => {
         redirects.forEach(redirect => expect(redirect).toMatchSnapshot())
+    })
+
+    test('포스트 페이지 생성자 테스트', () => {
+        const slug = '/post'
+        const data = {
+            posts: {
+                edges: [
+                    {
+                        node: {
+                            fields: {
+                                slug,
+                            },
+                        },
+                    },
+                ],
+            },
+        }
+
+        const [{ creator }] = creators.filter(c => c.id === 'createPostPages')
+        expect(creator).toBeDefined()
+
+        const createPage = jest.fn()
+        creator({ data, createPage })
+        expect(createPage).toBeCalledWith({
+            path: slug,
+            component: resolve(__dirname, '../src/templates/post.tsx'),
+            context: { slug },
+        })
     })
 
     test('buildSlug', () => {
