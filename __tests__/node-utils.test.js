@@ -16,7 +16,7 @@ describe('Gatsby Node', () => {
         redirects.forEach(redirect => expect(redirect).toMatchSnapshot())
     })
 
-    test('포스트 페이지 생성자 테스트', () => {
+    test('포스트 페이지 생성자', () => {
         const slug = '/post'
         const data = {
             posts: {
@@ -41,6 +41,30 @@ describe('Gatsby Node', () => {
             path: slug,
             component: resolve(__dirname, '../src/templates/post.tsx'),
             context: { slug },
+        })
+    })
+
+    test('시리즈 페이지 생성자', () => {
+        const series = 'Series'
+        const data = {
+            posts: {
+                group: [
+                    {
+                        series
+                    },
+                ],
+            },
+        }
+
+        const [{ creator }] = creators.filter(c => c.id === 'createSeriesPages')
+        expect(creator).toBeDefined()
+
+        const createPage = jest.fn()
+        creator({ data, createPage })
+        expect(createPage).toBeCalledWith({
+            path: `/series/${series}`,
+            component: resolve(__dirname, '../src/templates/series.tsx'),
+            context: { series },
         })
     })
 
