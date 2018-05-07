@@ -3,7 +3,7 @@ const {
     creators,
     buildSlug,
     buildSeries,
-} = require('gatsby-node')._node
+} = require('node-utils')
 
 describe('Gatsby Node', () => {
     test('페이지 생성 쿼리 스냅샷', () => {

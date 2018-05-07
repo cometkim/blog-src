@@ -29,7 +29,7 @@
             "<rootDir>/src/"
         ],
         "moduleNameMapper": {
-            "gatsby-node": "<rootDir>/gatsby-node.js"
+            "node-utils": "<rootDir>/node-utils.js"
         },
         "moduleFileExtensions": [
             "js",
