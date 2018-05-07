@@ -16,7 +16,29 @@
         "build": "yarn update-posts && gatsby build",
         "develop": "gatsby develop",
         "format": "tslint --fix -c tslint.json src/**/*.tsx?",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest"
+    },
+    "jest": {
+        "verbose": true,
+        "testRegex": "/__tests__/.*|(\\.|/)test\\.(js|ts)x?$",
+        "testPathIgnorePatterns": [
+            "/node_modules/",
+            "/.cache/"
+        ],
+        "moduleFileExtensions": [
+            "js",
+            "jsx",
+            "ts",
+            "tsx"
+        ],
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest"
+        },
+        "globals": {
+            "ts-jest": {
+                "useBabelrc": true
+            }
+        }
     },
     "dependencies": {
         "gatsby": "^1.9.247",
