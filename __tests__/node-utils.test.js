@@ -68,6 +68,30 @@ describe('Gatsby Node', () => {
         })
     })
 
+    test('태그 페이지 생성자', () => {
+        const tag = 'Tag'
+        const data = {
+            posts: {
+                group: [
+                    {
+                        tag
+                    },
+                ],
+            },
+        }
+
+        const [{ creator }] = creators.filter(c => c.id === 'createTagPages')
+        expect(creator).toBeDefined()
+
+        const createPage = jest.fn()
+        creator({ data, createPage })
+        expect(createPage).toBeCalledWith({
+            path: `/tags/${tag}`,
+            component: resolve(__dirname, '../src/templates/tag.tsx'),
+            context: { tag },
+        })
+    })
+
     test('buildSlug', () => {
         const postSlug = '/post'
         const context = {
