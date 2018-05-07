@@ -1,6 +1,6 @@
 const {
-    redirects,
     creators,
+    redirects,
     buildSlug,
     buildSeries,
 } = require('node-utils')
@@ -8,6 +8,10 @@ const {
 describe('Gatsby Node', () => {
     test('페이지 생성 쿼리 스냅샷', () => {
         creators.forEach(({ id, query })=> expect(query).toMatchSnapshot(id))
+    })
+
+    test('페이지 리디렉션 스냅샷', () => {
+        redirects.forEach(redirect => expect(redirect).toMatchSnapshot())
     })
 
     test('buildSlug', () => {
@@ -42,7 +46,7 @@ describe('Gatsby Node', () => {
             {
                 slug: '/series/post/',
                 expected: 'series',
-            }
+            },
         ]
         .forEach(({ slug: postSlug, expected }) => {
             const { series } = buildSeries({ postSlug })
