@@ -1,5 +1,3 @@
-declare const graphql: (query: TemplateStringsArray) => void
-
 declare interface SiteData {
     data: {
         site: {

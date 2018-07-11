@@ -7,11 +7,15 @@ const {
     buildSeries
 } = require('./node-utils')
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
+exports.onCreateNode = ({
+    node,
+    getNode,
+    actions: { createNodeField },
+}) => {
     if (node.internal.type === 'MarkdownRemark') {
         const { slug, postSlug } = buildSlug({ context: { node, getNode }, createFilePath })
         console.log(`\n- Gen Slug: ${slug}`)
-        boundActionCreators.createNodeField({
+        createNodeField({
             node,
             name: 'slug',
             value: slug,
@@ -19,7 +23,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
         
         const { series } = buildSeries({ postSlug })
         console.log(`-> Series ${series}`)
-        boundActionCreators.createNodeField({
+        createNodeField({
             node,
             name: 'series',
             value: series,
@@ -29,7 +33,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
 exports.createPages = async ({
     graphql,
-    boundActionCreators: {
+    actions: {
         createPage,
         createRedirect,
     },

@@ -1,5 +1,8 @@
 import * as React from 'react'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
+
+import Layout from 'components/layout'
 
 import {
     Header,
@@ -17,7 +20,7 @@ export default ({
         }
     }
 }: SiteData & AllMarkdownRemarkData) => (
-    <>
+    <Layout>
         <Header fixed title={siteMetadata.title} />
         <Container>
             <Summary>{allMarkdownRemark.group.length}개의 태그가 있습니다.</Summary>
@@ -26,7 +29,7 @@ export default ({
             }/>
         </Container>
         <Footer owner={siteMetadata.owner.name} />
-    </>
+    </Layout>
 )
 
 const Container = styled.main`

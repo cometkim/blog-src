@@ -1,5 +1,8 @@
 import * as React from 'react'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
+
+import Layout from 'components/layout'
 
 import {
     Header,
@@ -12,13 +15,13 @@ import theme from 'utils/theme'
 export type IndexPageProps = SiteData & AllMarkdownRemarkData
 
 export default ({ data }: IndexPageProps) => (
-    <>
+    <Layout>
         <Header fixed title={data.site.siteMetadata.title} />
         <Container>
             <PostCardList data={data}/>
         </Container>
         <Footer owner={data.site.siteMetadata.owner.name} />
-    </>
+    </Layout>
 )
 
 const Container = styled.main`
