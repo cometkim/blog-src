@@ -19,7 +19,6 @@ module.exports = {
         keywords,
     },
     plugins: [
-        'gatsby-plugin-react-next',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-resolve-src',
         'gatsby-plugin-typescript',
