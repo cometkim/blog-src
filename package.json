@@ -40,7 +40,7 @@
         ]
     },
     "dependencies": {
-        "gatsby": "^2.0.0-beta.22",
+        "gatsby": "2.0.0-beta.29",
         "gatsby-plugin-canonical-urls": "^2.0.0-beta.2",
         "gatsby-plugin-feed": "^2.0.0-beta.3",
         "gatsby-plugin-google-analytics": "^2.0.0-beta.2",
@@ -59,12 +59,12 @@
         "gatsby-remark-embed-youtube": "^0.0.7",
         "gatsby-remark-emojis": "^0.2.3",
         "gatsby-remark-external-links": "^0.0.4",
-        "gatsby-remark-images": "^2.0.1-beta.4",
+        "gatsby-remark-images": "^2.0.1-beta.6",
         "gatsby-remark-katex": "^2.0.0-beta.2",
         "gatsby-remark-prismjs": "^3.0.0-beta.3",
         "gatsby-remark-responsive-iframe": "^2.0.0-beta.2",
         "gatsby-source-filesystem": "^2.0.1-beta.3",
-        "gatsby-transformer-remark": "^2.1.1-beta.2",
+        "gatsby-transformer-remark": "^2.1.1-beta.3",
         "prismjs": "^1.15.0",
         "react": "^16.4.1",
         "react-dom": "^16.4.1",
