@@ -45,6 +45,10 @@ export default styled.article`
     ul {
         padding-left: 1.5rem;
     }
+
+    img {
+        max-width: 100%;
+    }
 `
 
 // Add hot fix for code style that suddenly not working
