@@ -4,11 +4,10 @@ import theme from 'utils/theme'
 import 'assets/prism-atom-dark.css'
 
 export default styled.article`
-    font-weight: 300;
+    font-weight: 400;
 
     a {
         color: ${theme.primaryColor};
-        font-weight: 400;
 
         :focus, :active, :hover {
             text-decoration: underline;
@@ -16,7 +15,7 @@ export default styled.article`
     }
 
     strong {
-        font-weight: 500;
+        font-weight: 600;
     }
     
     blockquote {

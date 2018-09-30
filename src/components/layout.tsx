@@ -15,6 +15,7 @@ injectGlobal`
         font-family: 'Noto Sans KR', sans-serif;
         word-break: keep-all;
         color: ${theme.blackColor};
+        -webkit-font-smoothing: antialiased;
     }
 
     a {
