@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
+import Layout from 'components/layout'
 import {
     Header,
     PostInfo,
@@ -30,7 +31,7 @@ export default ({ data }: BlogPostProps) => {
     }
 
     return (
-        <>
+        <Layout>
             <SiteHelmet 
                 url={`${siteUrl}${post.slug}`}
                 title={`${siteTitle} - ${post.title}`}
@@ -57,7 +58,7 @@ export default ({ data }: BlogPostProps) => {
                 </PostContainer>
             </Container>
             <Footer owner={owner.name} />
-        </>
+        </Layout>
     )
 }
 

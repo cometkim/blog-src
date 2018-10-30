@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
+import Layout from 'components/layout'
 import {
     Header,
     PostCardList,
@@ -33,14 +34,14 @@ export default ({
         }
     },
 }: Context & SiteData & AllMarkdownRemarkData) => (
-    <>
+    <Layout>
         <Header fixed title={title} />
         <Container>
             <Summary>{series}</Summary>
             <PostCardList data={data}/>
         </Container>
         <Footer owner={owner.name} />
-    </>
+    </Layout>
 )
 
 const Container = styled.main`

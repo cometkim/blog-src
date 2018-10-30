@@ -51,7 +51,7 @@
         "gatsby-plugin-resolve-src": "^2.0.0-beta.1",
         "gatsby-plugin-sharp": "^2.0.5",
         "gatsby-plugin-sitemap": "^2.0.1",
-        "gatsby-plugin-styled-components": "^3.0.0",
+        "gatsby-plugin-styled-components": "^3.0.1",
         "gatsby-plugin-twitter": "^2.0.5",
         "gatsby-plugin-typescript": "^2.0.0",
         "gatsby-remark-autolink-headers": "^2.0.6",
@@ -71,7 +71,7 @@
         "react-helmet": "^5.2.0",
         "react-icons-kit": "^1.1.12",
         "remark-parse": "^5.0.0",
-        "styled-components": "^3.4.9"
+        "styled-components": "^4.0.2"
     },
     "devDependencies": {
         "@babel/core": "^7.1.0",
@@ -81,7 +81,7 @@
         "@types/react-dom": "^16.0.7",
         "@types/react-helmet": "^5.0.7",
         "babel-core": "^7.0.0-bridge.0",
-        "babel-plugin-styled-components": "^1.7.1",
+        "babel-plugin-styled-components": "^1.8.0",
         "jest": "^23.6.0",
         "tslint": "^5.11.0"
     }
