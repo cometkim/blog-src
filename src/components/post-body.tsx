@@ -48,4 +48,13 @@ export default styled.article`
     img {
         max-width: 100%;
     }
+
+    .gatsby-resp-image-wrapper {
+        box-shadow: 0 0 1.25rem rgba(0, 0, 0, .1);
+    }
+
+    .twitter-tweet {
+        margin: auto;
+        box-shadow: 0 0 1.25rem rgba(0, 0, 0, .1);
+    }
 `
