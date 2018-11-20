@@ -48,4 +48,8 @@ export default styled.article`
     img {
         max-width: 100%;
     }
+
+    .twitter-tweet {
+        margin: auto;
+    }
 `
