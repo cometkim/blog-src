@@ -41,6 +41,11 @@ export default styled.article`
         border-radius: 3px;
     }
 
+    pre[class*="language-"] {
+        margin-left: -${theme.contentSidePadding};
+        margin-right: -${theme.contentSidePadding};
+    }
+
     ul {
         padding-left: 1.5rem;
     }
