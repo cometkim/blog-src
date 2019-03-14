@@ -54,7 +54,7 @@
         "gatsby-plugin-styled-components": "3.0.7",
         "gatsby-plugin-twitter": "2.0.12",
         "gatsby-plugin-typescript": "^2.0.11",
-        "gatsby-remark-autolink-headers": "2.0.15",
+        "gatsby-remark-autolink-headers": "2.0.16",
         "gatsby-remark-copy-linked-files": "2.0.9",
         "gatsby-remark-embed-youtube": "0.0.7",
         "gatsby-remark-emojis": "0.3.1",
