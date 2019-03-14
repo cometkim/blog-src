@@ -51,7 +51,7 @@
         "gatsby-plugin-resolve-src": "2.0.0",
         "gatsby-plugin-sharp": "2.0.28",
         "gatsby-plugin-sitemap": "2.0.9",
-        "gatsby-plugin-styled-components": "3.0.6",
+        "gatsby-plugin-styled-components": "3.0.7",
         "gatsby-plugin-twitter": "2.0.11",
         "gatsby-plugin-typescript": "^2.0.10",
         "gatsby-remark-autolink-headers": "2.0.15",
