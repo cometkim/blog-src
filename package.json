@@ -52,7 +52,7 @@
         "gatsby-plugin-sharp": "2.0.28",
         "gatsby-plugin-sitemap": "2.0.9",
         "gatsby-plugin-styled-components": "3.0.7",
-        "gatsby-plugin-twitter": "2.0.11",
+        "gatsby-plugin-twitter": "2.0.12",
         "gatsby-plugin-typescript": "^2.0.10",
         "gatsby-remark-autolink-headers": "2.0.15",
         "gatsby-remark-copy-linked-files": "2.0.9",
