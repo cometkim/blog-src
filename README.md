@@ -4,6 +4,7 @@
 [![Website](https://img.shields.io/website-up-down-green-red/http/blog.cometkim.kr.svg?label=status)](https://blog.cometkim.kr)
 [![CircleCI](https://img.shields.io/circleci/project/github/cometkim/blog-src.svg)](https://circleci.com/gh/cometkim/blog-src)
  [![Greenkeeper badge](https://badges.greenkeeper.io/cometkim/blog-src.svg)](https://greenkeeper.io/)
+ [![Netlify Status](https://api.netlify.com/api/v1/badges/26e49504-03cd-488b-a14a-ad181b337ec6/deploy-status)](https://app.netlify.com/sites/cometkim-blog/deploys)
 
 [Hyeseong's Blog](https://blog.cometkim.kr)의 소스코드입니다.
 
