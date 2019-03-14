@@ -10,7 +10,7 @@ const buildSlug = (context) => () => {
 const buildSeries = (context) => (slug) => {
     const trimSlash = path => path.slice(
         1, // the slug is always began with `/`
-        slug.endsWith('/') ? -1 : 0,
+        path.endsWith('/') ? -1 : undefined,
     )
 
     const [series, name] = trimSlash(slug).split('/')

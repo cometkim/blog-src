@@ -20,7 +20,6 @@
     },
     "jest": {
         "verbose": true,
-        "testRegex": "/__tests__/.*\\.test\\.(js|ts)x?$",
         "testPathIgnorePatterns": [
             "/node_modules/",
             "/.cache/"
@@ -28,9 +27,6 @@
         "modulePaths": [
             "<rootDir>/src/"
         ],
-        "moduleNameMapper": {
-            "node-utils": "<rootDir>/node-utils.js"
-        },
         "moduleFileExtensions": [
             "js",
             "jsx",
