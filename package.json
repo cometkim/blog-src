@@ -59,7 +59,7 @@
         "gatsby-remark-katex": "3.0.4",
         "gatsby-remark-prismjs": "3.2.5",
         "gatsby-remark-responsive-iframe": "2.0.10",
-        "gatsby-source-filesystem": "2.0.25",
+        "gatsby-source-filesystem": "2.0.26",
         "gatsby-transformer-remark": "2.3.3",
         "katex": "0.10.1",
         "prismjs": "1.15.0",
