@@ -3,6 +3,7 @@
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcometkim%2Fblog-src.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcometkim%2Fblog-src?ref=badge_shield)
 [![Website](https://img.shields.io/website-up-down-green-red/http/blog.cometkim.kr.svg?label=status)](https://blog.cometkim.kr)
 [![CircleCI](https://img.shields.io/circleci/project/github/cometkim/blog-src.svg)](https://circleci.com/gh/cometkim/blog-src)
+ [![Greenkeeper badge](https://badges.greenkeeper.io/cometkim/blog-src.svg)](https://greenkeeper.io/)
 
 [Hyeseong's Blog](https://blog.cometkim.kr)의 소스코드입니다.
 
@@ -32,4 +33,4 @@ MIT
 
 ### Dependencies scanning result
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcometkim%2Fblog-src.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcometkim%2Fblog-src?ref=badge_large) [![Greenkeeper badge](https://badges.greenkeeper.io/cometkim/blog-src.svg)](https://greenkeeper.io/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcometkim%2Fblog-src.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcometkim%2Fblog-src?ref=badge_large)
