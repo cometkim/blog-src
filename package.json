@@ -61,7 +61,7 @@
         "gatsby-remark-external-links": "0.0.4",
         "gatsby-remark-images": "3.0.9",
         "gatsby-remark-katex": "3.0.4",
-        "gatsby-remark-prismjs": "3.2.4",
+        "gatsby-remark-prismjs": "3.2.5",
         "gatsby-remark-responsive-iframe": "2.0.9",
         "gatsby-source-filesystem": "2.0.23",
         "gatsby-transformer-remark": "2.3.1",
