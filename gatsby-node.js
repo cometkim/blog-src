@@ -23,12 +23,12 @@ exports.onCreateNode = ({
 
     if (context.node.internal.type === 'MarkdownRemark') {
         const prefix = '/posts'
-        const slug = prefix + util.buildSlug()
-        console.log(`\n- Gen Slug: ${slug}`)
+        const slug = util.buildSlug()
+        console.log(`\n- Gen Slug: ${prefix}${slug}`)
         createNodeField({
             node: context.node,
             name: 'slug',
-            value: slug,
+            value: prefix + slug,
         })
         
         const series = util.buildSeries(slug)
