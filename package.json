@@ -36,7 +36,7 @@
         ]
     },
     "dependencies": {
-        "gatsby": "^2.1.34",
+        "gatsby": "^2.1.36",
         "gatsby-plugin-canonical-urls": "2.0.12",
         "gatsby-plugin-feed": "2.0.15",
         "gatsby-plugin-google-analytics": "2.0.17",
@@ -48,7 +48,7 @@
         "gatsby-plugin-sharp": "2.0.29",
         "gatsby-plugin-sitemap": "2.0.9",
         "gatsby-plugin-styled-components": "3.0.7",
-        "gatsby-plugin-twitter": "2.0.12",
+        "gatsby-plugin-twitter": "2.0.13",
         "gatsby-plugin-typescript": "^2.0.11",
         "gatsby-remark-autolink-headers": "2.0.16",
         "gatsby-remark-copy-linked-files": "2.0.11",
