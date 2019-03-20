@@ -36,7 +36,7 @@
         ]
     },
     "dependencies": {
-        "gatsby": "^2.1.37",
+        "gatsby": "^2.1.38",
         "gatsby-plugin-canonical-urls": "2.0.12",
         "gatsby-plugin-feed": "2.0.15",
         "gatsby-plugin-google-analytics": "2.0.17",
@@ -57,7 +57,7 @@
         "gatsby-remark-external-links": "0.0.4",
         "gatsby-remark-images": "3.0.10",
         "gatsby-remark-katex": "3.0.4",
-        "gatsby-remark-prismjs": "3.2.5",
+        "gatsby-remark-prismjs": "3.2.6",
         "gatsby-remark-responsive-iframe": "2.1.1",
         "gatsby-source-filesystem": "2.0.27",
         "gatsby-transformer-remark": "2.3.5",
