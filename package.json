@@ -36,9 +36,9 @@
         ]
     },
     "dependencies": {
-        "gatsby": "^2.2.3",
+        "gatsby": "^2.2.5",
         "gatsby-plugin-canonical-urls": "2.0.12",
-        "gatsby-plugin-feed": "2.0.15",
+        "gatsby-plugin-feed": "2.1.0",
         "gatsby-plugin-google-analytics": "2.0.17",
         "gatsby-plugin-manifest": "2.0.24",
         "gatsby-plugin-netlify": "2.0.13",
@@ -60,7 +60,7 @@
         "gatsby-remark-prismjs": "3.2.6",
         "gatsby-remark-responsive-iframe": "2.1.1",
         "gatsby-source-filesystem": "2.0.27",
-        "gatsby-transformer-remark": "2.3.7",
+        "gatsby-transformer-remark": "2.3.8",
         "katex": "0.10.1",
         "prismjs": "1.15.0",
         "react": "16.8.4",
