@@ -46,7 +46,7 @@
         "gatsby-plugin-react-helmet": "^3.0.11",
         "gatsby-plugin-resolve-src": "2.0.0",
         "gatsby-plugin-sharp": "2.0.32",
-        "gatsby-plugin-sitemap": "2.0.10",
+        "gatsby-plugin-sitemap": "2.0.11",
         "gatsby-plugin-styled-components": "3.0.7",
         "gatsby-plugin-twitter": "2.0.13",
         "gatsby-plugin-typescript": "^2.0.11",
