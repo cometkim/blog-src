@@ -5643,10 +5643,10 @@ gatsby-plugin-sharp@2.0.32:
     sharp "^0.21.3"
     svgo "^1.2.0"
 
-gatsby-plugin-sitemap@2.0.10:
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-2.0.10.tgz#1556eea417a55c8fbbd79e63eb80c1ef94039e91"
-  integrity sha512-oi+OqT6LdcXcS6l7g9HUqR4qrwUb489tUyMX5Y7WGgOfCgMgORTLAzGuKdkWL96u88Jyn+cdT3aqLCZd9D9H8Q==
+gatsby-plugin-sitemap@2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-2.0.11.tgz#daca6ab71c72d1f04194350c0ee1ae9384880ea3"
+  integrity sha512-oPn+h2M7HadAvIUjqHFK9JIwI9w8pTusCafuXzktUWjV/GmzZkto+YuGCq+2hj1VnldImA0LaX4fH2t6TKa7gA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     minimatch "^3.0.4"
