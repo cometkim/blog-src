@@ -5738,10 +5738,10 @@ gatsby-remark-embed-youtube@0.0.7:
     babel-runtime "^6.26.0"
     unist-util-visit "^1.1.3"
 
-gatsby-remark-emojis@0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-emojis/-/gatsby-remark-emojis-0.3.1.tgz#52f32f13bcb89ddbd660a4686850b906c88dc7e7"
-  integrity sha512-SvpKoUgcsCi10zDXgXvLUNHZ4j6ccc07Sx0cJslePmBZP0khUuAHg0yCXzDbh87exYG8etVsHsB3I6Bp7cWM1w==
+gatsby-remark-emojis@0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-emojis/-/gatsby-remark-emojis-0.3.2.tgz#5d8edb4e303dc9e05ee554d080dc486be6d3c810"
+  integrity sha512-IrRHau6xJeDAj766WuHv8LCBcKKaHMyhbYFlbIu2O1veOmTZ5mb/GnGz2raUr6MiAwRXXbUE0XQqWFMSZ1xr8w==
 
 gatsby-remark-external-links@0.0.4:
   version "0.0.4"
