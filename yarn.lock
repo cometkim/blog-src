@@ -5584,13 +5584,12 @@ gatsby-plugin-google-analytics@2.0.18:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-manifest@2.0.26:
-  version "2.0.26"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.26.tgz#a439dca68311dff2ed16379f366e380ac3ad4daf"
-  integrity sha512-Ybufb0QqNJHuh9qWeAoGIo9qGk49PzWBfCDde6+IrNrCJdGZ1IMfYRMMkMW/zLWlCArIbRNBbfgehCcuSXoRkw==
+gatsby-plugin-manifest@2.0.29:
+  version "2.0.29"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.29.tgz#ce83b0ef1aa2d74b9027c3bdb26be2fbd25ef1bc"
+  integrity sha512-zxUuoKxjjdEyj8Xh/svTIOhaIjONB2txel441yJXoYfHmNndysEn+DcYUMkN4xQwZLIaVKoQZ/fCNcVhUOUGIg==
   dependencies:
     "@babel/runtime" "^7.0.0"
-    bluebird "^3.5.0"
     sharp "^0.21.3"
 
 gatsby-plugin-netlify@2.0.13:
@@ -5642,10 +5641,10 @@ gatsby-plugin-resolve-src@2.0.0:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-resolve-src/-/gatsby-plugin-resolve-src-2.0.0.tgz#ab4ccaabbdfd9f2dc2e6a963980dc64ea858f0bf"
   integrity sha512-I8defckvufL/CDMWYvInO8eFwUU1NEQ8hSyUx886wsYlbUUdF2ZBAAJyfvKT7TpAH/dE0Snq29dMH0DMWOg06A==
 
-gatsby-plugin-sharp@2.0.32:
-  version "2.0.32"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.0.32.tgz#47ebf2e44ece58560fa8bc604e7904ff9dca1386"
-  integrity sha512-5cLD2VUcKBtIm7QJbSj4fIAv/eqD6KhraHODHjpGwqvwSOdLQB7YcmzSCPnRwxEv+0f2wNrjZYpsd8SmIWfhDw==
+gatsby-plugin-sharp@2.0.33:
+  version "2.0.33"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.0.33.tgz#e11d6992d4deec4eda0962cbb22baad02f30c7bc"
+  integrity sha512-iukfJqhZUbjflqpdFWLD86I14/MJD4eQR+TfmQRace+UInSlHfcyxK0f/Oqx/utKh8km/Q/3IKnSjA8QrVTLsA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     async "^2.1.2"
