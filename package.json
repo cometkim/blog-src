@@ -49,7 +49,7 @@
         "gatsby-plugin-sitemap": "2.0.12",
         "gatsby-plugin-styled-components": "3.0.7",
         "gatsby-plugin-twitter": "2.0.13",
-        "gatsby-plugin-typescript": "^2.0.11",
+        "gatsby-plugin-typescript": "^2.0.12",
         "gatsby-remark-autolink-headers": "2.0.16",
         "gatsby-remark-copy-linked-files": "2.0.11",
         "gatsby-remark-embed-youtube": "0.0.7",
