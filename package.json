@@ -78,7 +78,7 @@
         "@types/react-dom": "16.8.4",
         "@types/react-helmet": "5.0.8",
         "babel-core": "7.0.0-bridge.0",
-        "babel-plugin-styled-components": "1.10.0",
+        "babel-plugin-styled-components": "1.10.1",
         "jest": "24.3.1",
         "tslint": "5.13.1",
         "typescript": "^3.2.2"
