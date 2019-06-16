@@ -1,11 +1,11 @@
-import * as React from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 
 type SiteHelmetProps = {
     url: string;
     title: string;
     description: string;
-    author: SiteUser;
+    owner: SiteUser;
     keywords: string[];
     locale?: 'ko_KR' | 'en_US'
     imageSrc?: string;
@@ -22,9 +22,9 @@ export default class SiteHelmet extends React.PureComponent<SiteHelmetProps> {
             url,
             title,
             description,
-            author,
+            owner,
             keywords,
-            locale,
+            locale = 'ko_KR',
             imageSrc,
         } = this.props
 
@@ -36,7 +36,7 @@ export default class SiteHelmet extends React.PureComponent<SiteHelmetProps> {
             >
                 <title>{title}</title>
                 <meta name='description' content={description} />
-                <meta name='author' content={`${author.name} <${author.email}>`} />
+                <meta name='author' content={`${owner.name} <${owner.email}>`} />
                 <meta name='keywords' content={keywords.join(', ')} />
 
                 {/* OpenGraph Tags */}

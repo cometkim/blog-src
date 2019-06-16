@@ -45,10 +45,11 @@ exports.onCreateNode = ({
 // - Post pages (`/posts/{slug}`)
 // - Series pages (`/series/{series}`)
 // - Tag pages (`/tag/{tag}`)
-exports.createPages = async (context) => {
+exports.createPages = async context => {
     const util = createPageUtil(context)
 
-    const postPageCreator = util.createPageCreator({
+    // Post Pages Creator
+    util.createPageCreator({
         query: graphql`{
             posts: allMarkdownRemark {
                 edges {
@@ -70,9 +71,10 @@ exports.createPages = async (context) => {
                 context: { slug },
             }))
         ),
-    })
+    })()
 
-    const seriesPageCreator = util.createPageCreator({
+    // Series Pages Creator
+    util.createPageCreator({
         query: graphql`{
             posts: allMarkdownRemark(
                 filter: {
@@ -95,9 +97,10 @@ exports.createPages = async (context) => {
                 context: { series },
             })
         )),
-    })
+    })()
 
-    const tagPageCreator = util.createPageCreator({
+    // Tag Pages Creator
+    util.createPageCreator({
         query: graphql`{
             posts: allMarkdownRemark(
                 filter: {
@@ -120,11 +123,5 @@ exports.createPages = async (context) => {
                 context: { tag },
             }))
         ),
-    })
-
-    await Promise.all([
-        postPageCreator(),
-        seriesPageCreator(),
-        tagPageCreator(),
-    ])
+    })()
 }

@@ -1,48 +1,23 @@
-import * as React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
-import Layout from 'components/layout'
+import { useSiteMetadata } from 'hooks/use-site-metadata'
+import theme from 'utils/theme'
+
 import {
+    Layout,
     Header,
     PostCardList,
     Footer,
 } from 'components'
 
-import theme from 'utils/theme'
-
-type Context = {
+interface TagPageTemplateProps {
+    data: AllMarkdownRemarkData;
     pathContext: {
         tag: string,
     },
 }
-
-export default ({
-    pathContext: {
-        tag,
-    },
-    data,
-    data: {
-        site: {
-            siteMetadata: {
-                title,
-                owner,
-            },
-        },
-        allMarkdownRemark: {
-            edges
-        }
-    },
-}: Context & SiteData & AllMarkdownRemarkData) => (
-    <Layout>
-        <Header fixed title={title} />
-        <Container>
-            <SeriesSummary>{tag}: {edges.length}개의 글이 있습니다.</SeriesSummary>
-            <PostCardList data={data}/>
-        </Container>
-        <Footer owner={owner.name} />
-    </Layout>
-)
 
 const Container = styled.main`
     display: flex;
@@ -58,16 +33,31 @@ const SeriesSummary = styled.div`
     padding: 0 ${theme.contentSidePadding};
 `
 
+const TagPageTemplate: React.FC<TagPageTemplateProps> = ({ data, pathContext }) => { 
+    const siteMetadata = useSiteMetadata()
+    const posts = data.allMarkdownRemark.edges
+        .map(edge => edge.node)
+        .map(({ fields, frontmatter, excerpt }) => ({
+            ...fields,
+            ...frontmatter,
+            excerpt,
+        }))
+    return (
+        <Layout>
+            <Header fixed title={siteMetadata.title} />
+            <Container>
+                <SeriesSummary>{pathContext.tag}: {data.allMarkdownRemark.edges.length}개의 글이 있습니다.</SeriesSummary>
+                <PostCardList posts={posts}/>
+            </Container>
+            <Footer owner={siteMetadata.owner.name} />
+        </Layout>
+    )
+}
+
+export default TagPageTemplate
+
 export const pageQuery = graphql`
-    query TagQuery($tag: String!) {
-        site {
-            siteMetadata {
-                title
-                owner {
-                    name
-                }
-            }
-        }
+    query TagPageQuery($tag: String!) {
         allMarkdownRemark(
             sort: { fields: [frontmatter___date], order: DESC }
             filter: { frontmatter: { tags: { eq: $tag } } }

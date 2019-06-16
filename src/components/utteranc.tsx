@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 interface UtterancProps {
     repo: string
@@ -6,22 +6,28 @@ interface UtterancProps {
     issueTerm: string
 }
 
-export default class Utteranc extends React.PureComponent<UtterancProps> {
-    instance: HTMLDivElement = null;
+const Utteranc: React.FC<UtterancProps> = ({ repo, branch, issueTerm }) => {
+    const containerRef = React.useRef<HTMLDivElement | null>(null);
 
-    componentDidMount() {
+    React.useEffect(() => {
         const utteranc = document.createElement('script')
         utteranc.src = 'https://utteranc.es/client.js'
         utteranc.async = true
 
-        utteranc.setAttribute('repo', this.props.repo)
-        utteranc.setAttribute('branch', this.props.branch)
-        utteranc.setAttribute('issue-term', this.props.issueTerm)
+        utteranc.setAttribute('repo', repo)
+        utteranc.setAttribute('branch', branch)
+        utteranc.setAttribute('issue-term', issueTerm)
 
-        this.instance.appendChild(utteranc)
-    }
+        containerRef.current!.appendChild(utteranc)
 
-    render() {
-        return <div ref={el => (this.instance = el)} />
-    }
+        return () => {
+            containerRef.current!.innerHTML = ''
+        }
+    }, [repo, branch, issueTerm])
+
+    return (
+        <div ref={containerRef}/>
+    )
 }
+
+export default Utteranc

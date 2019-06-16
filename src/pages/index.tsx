@@ -1,64 +1,66 @@
-import * as React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react'
 import styled from 'styled-components'
-
-import Layout from 'components/layout'
+import { useStaticQuery, graphql } from 'gatsby'
+import { useSiteMetadata } from 'hooks/use-site-metadata'
+import theme from 'utils/theme'
 
 import {
+    Layout,
     Header,
     PostCardList,
     Footer,
 } from 'components'
 
-import theme from 'utils/theme'
-
-export type IndexPageProps = SiteData & AllMarkdownRemarkData
-
-export default ({ data }: IndexPageProps) => (
-    <Layout>
-        <Header fixed title={data.site.siteMetadata.title} />
-        <Container>
-            <PostCardList data={data}/>
-        </Container>
-        <Footer owner={data.site.siteMetadata.owner.name} />
-    </Layout>
-)
-
 const Container = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: ${theme.headerHeight}
+    padding-top: ${theme.headerHeight};
 `
 
-export const pageQuery = graphql`
-    query IndexQuery {
-        site {
-            siteMetadata {
-                title
-                owner {
-                    name
-                }
-            }
-        }
-        allMarkdownRemark(
-            sort: { fields: [frontmatter___date], order: DESC }
-        ) {
-            edges {
-                node {
-                    fields {
-                        slug
-                        series
-                    }
-                    excerpt
-                    frontmatter {
-                        title
-                        author
-                        date(formatString: "YYYY년 M월 D일")
-                        tags
+const IndexPage: React.FC = () => {
+    const siteMetadata = useSiteMetadata()
+    const data = useStaticQuery<AllMarkdownRemarkData>(graphql`
+        query IndexPageQuery {
+            allMarkdownRemark(
+                sort: { fields: [frontmatter___date], order: DESC }
+            ) {
+                edges {
+                    node {
+                        fields {
+                            slug
+                            series
+                        }
+                        excerpt
+                        frontmatter {
+                            title
+                            author
+                            date(formatString: "YYYY년 M월 D일")
+                            tags
+                        }
                     }
                 }
             }
         }
-    }
-`
+    `)
+
+    const posts = data.allMarkdownRemark.edges
+        .map(edge => edge.node)
+        .map(({ frontmatter, fields, excerpt }) => ({
+            ...frontmatter,
+            ...fields,
+            excerpt,
+        }))
+
+    return (
+        <Layout>
+            <Header fixed title={siteMetadata.title} />
+            <Container>
+                <PostCardList posts={posts}/>
+            </Container>
+            <Footer owner={siteMetadata.owner.name} />
+        </Layout>
+    )
+}
+
+export default IndexPage

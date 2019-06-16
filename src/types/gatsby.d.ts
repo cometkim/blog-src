@@ -1,21 +1,15 @@
 declare interface SiteData {
-    data: {
-        site: {
-            siteMetadata: SiteMetadata
-        }
+    site: {
+        siteMetadata: SiteMetadata
     }
 }
 
 declare interface AllMarkdownRemarkData {
-    data: {
-        allMarkdownRemark: AllMarkdownRemark
-    }
+    allMarkdownRemark: AllMarkdownRemark
 }
 
 declare interface MarkdownRemarkData {
-    data: {
-        markdownRemark: MarkdownRemark
-    }
+    markdownRemark: MarkdownRemark
 }
 
 declare interface SiteMetadata {
@@ -23,7 +17,7 @@ declare interface SiteMetadata {
     owner: SiteUser
     title: string
     description: string
-    keywords: string[]
+    keywords: Array<string>
 }
 
 declare interface SiteUser {
@@ -35,12 +29,12 @@ declare interface SiteUser {
 }
 
 declare interface AllMarkdownRemark {
-    edges?: Array<MarkdownRemarkEdge>
+    edges: Array<MarkdownRemarkEdge>
     group: Array<MarkdownRemarkGroup>
 }
 
 declare interface MarkdownRemarkEdge {
-    node?: MarkdownRemark
+    node: MarkdownRemark
 }
 
 declare interface MarkdownRemarkGroup {
@@ -50,28 +44,28 @@ declare interface MarkdownRemarkGroup {
 }
 
 declare interface MarkdownRemark {
-    id?: string
-    fileAbsoultePath?: string
-    html?: string
-    excerpt?: string
-    internal?: MarkdownRemarkInternal
-    fields?: Fields
-    frontmatter?: Frontmatter
+    id: string
+    fileAbsoultePath: string
+    html: string
+    excerpt: string
+    internal: MarkdownRemarkInternal
+    fields: Fields
+    frontmatter: Frontmatter
 }
 
 declare interface MarkdownRemarkInternal {
-    content?: string
-    contentDigest?: string
-    type?: 'MarkdownRemark'
-    owner?: 'gatsby-transformer-remark'
+    content: string
+    contentDigest: string
+    type: 'MarkdownRemark'
+    owner: 'gatsby-transformer-remark'
 }
 
 declare interface Frontmatter {
-    title?: string
-    author?: string
-    date?: string
-    tags?: Array<string>
-    draft?: boolean
+    title: string
+    author: string
+    date: string
+    tags: Array<string>
+    draft: boolean
 }
 
 declare interface Fields {

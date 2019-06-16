@@ -1,36 +1,15 @@
-import * as React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react'
 import styled from 'styled-components'
-
-import Layout from 'components/layout'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import {
+    Layout,
     Header,
     TagList,
     Footer,
 } from 'components'
 
 import theme from 'utils/theme'
-
-export default ({
-    data: {
-        allMarkdownRemark,
-        site: {
-            siteMetadata
-        }
-    }
-}: SiteData & AllMarkdownRemarkData) => (
-    <Layout>
-        <Header fixed title={siteMetadata.title} />
-        <Container>
-            <Summary>{allMarkdownRemark.group.length}개의 태그가 있습니다.</Summary>
-            <TagList tags={allMarkdownRemark.group
-                .map(group => group.fieldValue)
-            }/>
-        </Container>
-        <Footer owner={siteMetadata.owner.name} />
-    </Layout>
-)
 
 const Container = styled.main`
     display: flex;
@@ -46,25 +25,43 @@ const Summary = styled.div`
     margin: ${theme.contentSpacing} 0;
 `
 
-export const pageQuery = graphql`
-    query AllTagQuery {
-        site {
-            siteMetadata {
-                title
-                owner {
-                    name
+const TagsPage: React.FC = () => {
+    const data = useStaticQuery<SiteData & AllMarkdownRemarkData>(graphql`
+        query AllTagQuery {
+            site {
+                siteMetadata {
+                    title
+                    owner {
+                        name
+                    }
+                }
+            }
+            allMarkdownRemark(
+                filter: { frontmatter: { tags: { ne: null } } }
+            ){
+                group(
+                    field: frontmatter___tags
+                ){
+                    fieldValue
+                    totalCount
                 }
             }
         }
-        allMarkdownRemark(
-            filter: { frontmatter: { tags: { ne: null } } }
-        ){
-            group(
-                field: frontmatter___tags
-            ){
-                fieldValue
-                totalCount
-            }
-        }
-    }
-`
+    `)
+
+    const tags = data.allMarkdownRemark.group
+        .map(group => group.fieldValue)
+
+    return (
+        <Layout>
+            <Header fixed title={data.site.siteMetadata.title} />
+            <Container>
+                <Summary>{tags.length}개의 태그가 있습니다.</Summary>
+                <TagList tags={tags}/>
+            </Container>
+            <Footer owner={data.site.siteMetadata.owner.name} />
+        </Layout>
+    )
+}
+
+export default TagsPage

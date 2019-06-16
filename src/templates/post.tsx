@@ -1,9 +1,11 @@
-import * as React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
-import Layout from 'components/layout'
+import { useSiteMetadata } from 'hooks/use-site-metadata';
+import theme from 'utils/theme'
 import {
+    Layout,
     Header,
     PostInfo,
     PostBody,
@@ -13,53 +15,8 @@ import {
     SiteHelmet,
 } from 'components'
 
-import theme from 'utils/theme'
-
-type BlogPostProps = SiteData & MarkdownRemarkData
-
-export default ({ data }: BlogPostProps) => {
-    const {
-        siteUrl,
-        title: siteTitle,
-        owner
-    } = data.site.siteMetadata
-
-    const post = {
-        ...data.markdownRemark,
-        ...data.markdownRemark.fields,
-        ...data.markdownRemark.frontmatter,
-    }
-
-    return (
-        <Layout>
-            <SiteHelmet 
-                url={`${siteUrl}${post.slug}`}
-                title={`${siteTitle} - ${post.title}`}
-                description={post.excerpt}
-                author={owner}
-                keywords={post.tags}
-            />
-            <Header title={siteTitle} />
-            <Container>
-                <PostContainer>
-                    <PostMetaData>
-                        <PostTitle>{post.title}</PostTitle>
-                        <PostInfo {...post} />
-                    </PostMetaData>
-                    <PostBody
-                        dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
-                    />
-                    <PostLicenseInfo />
-                    <Utteranc
-                        repo='cometkim/blog-posts'
-                        branch='master'
-                        issueTerm='pathname'
-                    />
-                </PostContainer>
-            </Container>
-            <Footer owner={owner.name} />
-        </Layout>
-    )
+interface PostPageTemplateProps {
+    data: MarkdownRemarkData
 }
 
 const Container = styled.main`
@@ -90,19 +47,49 @@ const PostTitle = styled.div`
     text-align: center;
 `
 
+const PostPageTemplate: React.FC<PostPageTemplateProps> = ({ data }) => {
+    const siteMetadata = useSiteMetadata()
+    const post = {
+        ...data.markdownRemark,
+        ...data.markdownRemark.fields,
+        ...data.markdownRemark.frontmatter,
+    }
+    return (
+        <Layout>
+            <SiteHelmet 
+                url={`${siteMetadata.siteUrl}${post.slug}`}
+                title={`${siteMetadata.title} - ${post.title}`}
+                description={post.excerpt}
+                owner={siteMetadata.owner}
+                keywords={post.tags}
+            />
+            <Header title={siteMetadata.title} />
+            <Container>
+                <PostContainer>
+                    <PostMetaData>
+                        <PostTitle>{post.title}</PostTitle>
+                        <PostInfo {...post} />
+                    </PostMetaData>
+                    <PostBody
+                        dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+                    />
+                    <PostLicenseInfo />
+                    <Utteranc
+                        repo='cometkim/blog-posts'
+                        branch='master'
+                        issueTerm='pathname'
+                    />
+                </PostContainer>
+            </Container>
+            <Footer owner={siteMetadata.owner.name} />
+        </Layout>
+    )
+}
+
+export default PostPageTemplate
+
 export const pageQuery = graphql`
     query BlogPostByPath($slug: String!) {
-        site {
-            siteMetadata {
-                siteUrl
-                title
-                owner {
-                    name
-                    email
-                }
-            }
-        }
-
         markdownRemark(fields: { slug: { eq: $slug } }) {
             html
             excerpt

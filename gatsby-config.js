@@ -1,23 +1,11 @@
-const siteUrl = 'https://blog.cometkim.kr'
-const title = `Hyeseong's Blog`
-const description = '엔지니어링 관련 있거나 없거나, 잡생각을 모아 지식으로 정리하는 블로그'
-const keywords = ['dev', 'blog', 'web']
-const owner = {
-    name: 'Hyeseong Kim',
-    email: 'cometkim.kr@gmail.com',
-    github: 'cometkim',
-    twitter: 'KrComet',
-    gravatar: 'f8926983e9d37ea2f6ffba6575fad143',
-}
+const YAML = require('yaml')
+const fs = require('fs')
+const path = require('path')
+const siteMetadata = YAML.parse(fs.readFileSync(path.resolve(__dirname, 'site-metadata.yml'), 'utf-8'))
+const { siteUrl, title, description } = siteMetadata
 
 module.exports = {
-    siteMetadata: {
-        siteUrl,
-        owner,
-        title,
-        description,
-        keywords,
-    },
+    siteMetadata,
     plugins: [
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-resolve-src',
@@ -27,8 +15,10 @@ module.exports = {
         'gatsby-plugin-feed',
         'gatsby-plugin-offline',
         'gatsby-plugin-netlify',
+        'gatsby-plugin-netlify-cache',
         'gatsby-plugin-sharp',
         'gatsby-plugin-twitter',
+        'gatsby-plugin-catch-links',
         {
             resolve: 'gatsby-plugin-canonical-urls',
             options: {
@@ -42,7 +32,9 @@ module.exports = {
                 short_name: title,
                 description,
                 start_url: '/',
-                display: 'minimal-ui',
+                display: 'standalone',
+                // 아이콘 어케 만듬...?
+                // icon: 'src/images/icon.png',
             },
         },
         {
@@ -67,6 +59,12 @@ module.exports = {
                         resolve: 'gatsby-remark-images',
                         options: {
                             maxWidth: 590,
+                            linkImagesToOriginal: false,
+                            showCaptions: true,
+                            tracedSVG: {
+                                color: '#EEE',
+                                turnPolicy: 'TURNPOLICY_MAJORITY',
+                            },
                         },
                     },
                     {
@@ -77,13 +75,20 @@ module.exports = {
                             size: 24,
                         },
                     },
-                    'gatsby-remark-copy-linked-files',
-                    'gatsby-remark-prismjs',
+                    {
+                        resolve: 'gatsby-remark-images-zoom',
+                        options: {
+                            zIndex: 0,
+                        },
+                    },
                     'gatsby-remark-autolink-headers',
-                    'gatsby-remark-embed-youtube',
-                    'gatsby-remark-responsive-iframe',
+                    'gatsby-remark-copy-linked-files',
+                    'gatsby-remark-code-titles',
+                    'gatsby-remark-embed-video',
                     'gatsby-remark-external-links',
                     'gatsby-remark-katex',
+                    'gatsby-remark-prismjs',
+                    'gatsby-remark-responsive-iframe',
                 ],
             },
         },

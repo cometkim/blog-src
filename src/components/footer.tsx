@@ -1,33 +1,10 @@
-import * as React from 'react'
-import { Link } from 'gatsby'
+import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
-import theme from 'utils/theme'
-
-export type FooterProps = {
+interface FooterProps {
     owner: string;
 }
-
-export default ({ owner }: FooterProps) => (
-    <Container>
-        <Section>
-            {`© 2018 `}
-            <Link to='/about/'>{owner}</Link>
-        </Section>
-        <Section>
-            {`Powered by `}
-            <a href='https://gatsbyjs.org' target='_blank'>GatsbyJS</a>
-        </Section>
-        <Section>
-            {`Hosted by `}
-            <a href='https://netlify.com' target='_blank'>Netlify</a>
-        </Section>
-        <Section>
-            {`Source code on `}
-            <a href='https://github.com/cometkim/blog-src' target='_blank'>GitHub</a>
-        </Section>
-    </Container>
-)
 
 const Container = styled.footer`
     display: flex;
@@ -38,7 +15,7 @@ const Container = styled.footer`
     height: 3rem;
 `
 
-const Section = styled.section`
+const Section = styled.div`
     text-align: center;
 
     &, a {
@@ -56,3 +33,32 @@ const Section = styled.section`
         text-decoration: none;
     }
 `
+
+const Footer: React.FC<FooterProps> = ({ owner }) => (
+    <Container>
+        <Section>
+            {`© 2018 `}
+            <Link to='/about/'>{owner}</Link>
+        </Section>
+        <Section>
+            {`Powered by `}
+            <a href='https://gatsbyjs.org' target='_blank' rel='noopener noreferrer'>
+                GatsbyJS
+            </a>
+        </Section>
+        <Section>
+            {`Hosted by `}
+            <a href='https://netlify.com' target='_blank' rel='noopener noreferrer'>
+                Netlify
+            </a>
+        </Section>
+        <Section>
+            {`Source code on `}
+            <a href='https://github.com/cometkim/blog-src' target='_blank' rel='noopener noreferrer'>
+                GitHub
+            </a>
+        </Section>
+    </Container>
+)
+
+export default Footer

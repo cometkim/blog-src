@@ -1,31 +1,21 @@
-import * as React from 'react'
-import { graphql } from 'gatsby'
-
-import Layout from 'components/layout'
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import { useSiteMetadata } from 'hooks/use-site-metadata'
 
 import {
+    Layout,
     Header,
     Footer,
 } from 'components'
 
-type AboutPageProps = SiteData
+const AboutPage: React.FC = () => {
+    const siteMetadata = useSiteMetadata()
+    return (
+        <Layout>
+            <Header fixed title={siteMetadata.title} />
+            <Footer owner={siteMetadata.owner.name} />
+        </Layout>
+    )
+}
 
-export default ({ data }: AboutPageProps) => (
-    <Layout>
-        <Header fixed title={data.site.siteMetadata.title} />
-        <Footer owner={data.site.siteMetadata.owner.name} />
-    </Layout>
-)
-
-export const pageQuery = graphql`
-    query AboutQuery {
-        site {
-            siteMetadata {
-                title
-                owner {
-                    name
-                }
-            }
-        }
-    }
-`
+export default AboutPage

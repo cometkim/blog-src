@@ -1,43 +1,15 @@
-import * as React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react'
 import styled from 'styled-components'
-
-import Layout from 'components/layout'
+import { useStaticQuery, graphql } from 'gatsby'
+import { useSiteMetadata } from 'hooks/use-site-metadata'
+import theme from 'utils/theme'
 
 import {
+    Layout,
     Header,
     SeriesCard,
     Footer,
 } from 'components'
-
-import theme from 'utils/theme'
-
-export default ({
-    data: {
-        allMarkdownRemark,
-        site: {
-            siteMetadata
-        }
-    }
-}: SiteData & AllMarkdownRemarkData) => (
-    <>
-        <Header fixed title={siteMetadata.title} />
-        <Container>
-            <Summary>{allMarkdownRemark.group.length}개의 시리즈가 있습니다.</Summary>
-            <SeriesList>
-                {allMarkdownRemark.group.map(group => (
-                    <SeriesItem>
-                        <SeriesCard 
-                            name={group.fieldValue}
-                            count={group.totalCount}
-                        />
-                    </SeriesItem>
-                ))}
-            </SeriesList>
-        </Container>
-        <Footer owner={siteMetadata.owner.name} />
-    </>
-)
 
 const Container = styled.main`
     display: flex;
@@ -64,25 +36,41 @@ const SeriesItem = styled.li`
     padding-bottom: 1.75rem;
 `
 
-export const pageQuery = graphql`
-    query AllSeriesQuery {
-        site {
-            siteMetadata {
-                title
-                owner {
-                    name
+const SeriesPage: React.FC = () => {
+    const siteMetadata = useSiteMetadata()
+    const data = useStaticQuery<AllMarkdownRemarkData>(graphql`
+        query AllSeriesQuery {
+            allMarkdownRemark(
+                filter: { fields: { series: { ne: null } } }
+            ){
+                group(
+                    field: fields___series
+                ){
+                    fieldValue
+                    totalCount
                 }
             }
         }
-        allMarkdownRemark(
-            filter: { fields: { series: { ne: null } } }
-        ){
-            group(
-                field: fields___series
-            ){
-                fieldValue
-                totalCount
-            }
-        }
-    }
-`
+    `)
+    return (
+        <Layout>
+            <Header fixed title={siteMetadata.title} />
+            <Container>
+                <Summary>{data.allMarkdownRemark.group.length}개의 시리즈가 있습니다.</Summary>
+                <SeriesList>
+                    {data.allMarkdownRemark.group.map(group => (
+                        <SeriesItem>
+                            <SeriesCard 
+                                name={group.fieldValue}
+                                count={group.totalCount}
+                            />
+                        </SeriesItem>
+                    ))}
+                </SeriesList>
+            </Container>
+            <Footer owner={siteMetadata.owner.name} />
+        </Layout>
+    )
+}
+
+export default SeriesPage
