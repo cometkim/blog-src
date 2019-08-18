@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
 
-import theme from 'utils/theme'
-import { useScrollState } from 'hooks/use-scroll-state';
+import theme from '~/src/utils/theme';
+import { useScrollState } from '~/src/hooks/use-scroll-state';
 
 interface HeaderProps {
-    title: string
-    fixed?: boolean
+  title: string
+  fixed?: boolean
 }
 
 const Container = styled.header`
@@ -25,7 +25,7 @@ const Container = styled.header`
     &.hide {
         transform: translateY(-${theme.headerHeight});
     }
-`
+`;
 
 const HomeLink = styled(Link)`
     position: absolute;
@@ -34,15 +34,15 @@ const HomeLink = styled(Link)`
     font-size: 1.5rem;
     font-weight: bold;
     color: ${theme.blackColor};
-`
+`;
 
 const Header: React.FC<HeaderProps> = ({ title, fixed }) => {
-    const scrollState = useScrollState()
-    return (
-        <Container className={!fixed && scrollState.scrollingDown ? 'hide' : ''}>
-            <HomeLink to='/'>{title}</HomeLink>
-        </Container>
-    ) 
-}
+  const scroll = useScrollState();
+  return (
+    <Container className={!fixed && scroll.accDeltaY > 15 ? 'hide' : ''}>
+      <HomeLink to='/'>{title}</HomeLink>
+    </Container>
+  );
+};
 
-export default Header
+export default Header;

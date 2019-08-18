@@ -1,8 +1,7 @@
-const path = require('path')
-const fs = require('fs')
-const YAML = require('yaml')
-const siteMetadata = YAML.parse(fs.readFileSync(path.resolve(process.cwd(), 'site-metadata.yml'), 'utf-8'))
+import { resolve } from 'path';
+import { readFileSync } from 'fs';
+import YAML from 'yaml';
 
-module.exports = {
-    useSiteMetadata: jest.fn().mockReturnValue(siteMetadata)
-}
+const siteMetadata = YAML.parse(readFileSync(resolve(process.cwd(), 'site-metadata.yml'), 'utf-8'));
+
+export const useSiteMetadata = jest.fn().mockReturnValue(siteMetadata);

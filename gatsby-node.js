@@ -1,127 +1,127 @@
-const { createFieldUtil } = require('./bootstrap/filed-util')
-const { createPageUtil } = require('./bootstrap/page-util')
-const redirects = require('./bootstrap/redirects')
+const { createFieldUtil } = require('./bootstrap/filed-util');
+const { createPageUtil } = require('./bootstrap/page-util');
+const redirects = require('./bootstrap/redirects');
 
 // Does nothing but for hinting syntax highlight of inline GraphQL query
-const graphql = lit => lit[0]
+const graphql = lit => lit[0];
 
 // Create redirections
 exports.onPostBootstrap = ({
-    actions: { createRedirect },
+  actions: { createRedirect },
 }) => {
-    redirects.forEach(redirect => createRedirect(redirect))
-}
+  redirects.forEach(redirect => createRedirect(redirect));
+};
 
 // Create custom fields on nodes
 // - Slug (equals with path of URL)
 // - Series (Split the slug by `/`, then equals with the first part if it have a couple, otherwise null)
 exports.onCreateNode = ({
-    actions: { createNodeField },
-    ...context
+  actions: { createNodeField },
+  ...context
 }) => {
-    const util = createFieldUtil(context)
+  const util = createFieldUtil(context);
 
-    if (context.node.internal.type === 'MarkdownRemark') {
-        const prefix = '/posts'
-        const slug = util.buildSlug()
-        console.log(`\n- Gen Slug: ${prefix}${slug}`)
-        createNodeField({
-            node: context.node,
-            name: 'slug',
-            value: prefix + slug,
-        })
-        
-        const series = util.buildSeries(slug)
-        console.log(`-> Series ${series}`)
-        createNodeField({
-            node: context.node,
-            name: 'series',
-            value: series,
-        })
-    }
-}
+  if (context.node.internal.type === 'MarkdownRemark') {
+    const prefix = '/posts';
+    const slug = util.buildSlug();
+    console.log(`\n- Gen Slug: ${prefix}${slug}`);
+    createNodeField({
+      node: context.node,
+      name: 'slug',
+      value: prefix + slug,
+    });
+
+    const series = util.buildSeries(slug);
+    console.log(`-> Series ${series}`);
+    createNodeField({
+      node: context.node,
+      name: 'series',
+      value: series,
+    });
+  }
+};
 
 // Create contentful pages
 // - Post pages (`/posts/{slug}`)
 // - Series pages (`/series/{series}`)
 // - Tag pages (`/tag/{tag}`)
 exports.createPages = async context => {
-    const util = createPageUtil(context)
+  const util = createPageUtil(context);
 
-    // Post Pages Creator
-    util.createPageCreator({
-        query: graphql`{
-            posts: allMarkdownRemark {
-                edges {
-                    node {
-                        fields {
-                            slug
-                        }
-                    }
-                }
+  // Post Pages Creator
+  util.createPageCreator({
+    query: graphql`{
+      posts: allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
             }
-        }`,
-        mapDataToProps: data => (
-            data.posts.edges
-            .map(edge => edge.node)
-            .map(node => node.fields.slug)
-            .map(slug => ({
-                path: slug,
-                component: `${__dirname}/src/templates/post.tsx`,
-                context: { slug },
-            }))
-        ),
-    })()
+          }
+        }
+      }
+    }`,
+    mapDataToProps: data => (
+      data.posts.edges
+        .map(edge => edge.node)
+        .map(node => node.fields.slug)
+        .map(slug => ({
+          path: slug,
+          component: `${__dirname}/src/templates/post.tsx`,
+          context: { slug },
+        }))
+    ),
+  })();
 
-    // Series Pages Creator
-    util.createPageCreator({
-        query: graphql`{
-            posts: allMarkdownRemark(
-                filter: {
-                    fields: {
-                        series: { ne: null }
-                    }
-                }
-            ) {
-                groups: group(field: fields___series){
-                    series: fieldValue
-                }
+  // Series Pages Creator
+  util.createPageCreator({
+    query: graphql`{
+        posts: allMarkdownRemark(
+          filter: {
+            fields: {
+              series: { ne: null }
             }
+          }
+          ) {
+            groups: group(field: fields___series){
+              series: fieldValue
+            }
+          }
         }`,
-        mapDataToProps: data => (
-            data.posts.groups
-            .map(group => group.series)
-            .map(series => ({
-                path: `/series/${series}`,
-                component: `${__dirname}/src/templates/series.tsx`,
-                context: { series },
-            })
+    mapDataToProps: data => (
+      data.posts.groups
+        .map(group => group.series)
+        .map(series => ({
+          path: `/series/${series}`,
+          component: `${__dirname}/src/templates/series.tsx`,
+          context: { series },
+        })
         )),
-    })()
+  })();
 
-    // Tag Pages Creator
-    util.createPageCreator({
-        query: graphql`{
+  // Tag Pages Creator
+  util.createPageCreator({
+    query: graphql`{
             posts: allMarkdownRemark(
-                filter: {
-                    frontmatter: {
-                        tags: { ne: null }
-                    }
+              filter: {
+                frontmatter: {
+                  tags: { ne: null }
                 }
-            ) {
+              }
+              ) {
                 groups: group(field: frontmatter___tags) {
-                    tag: fieldValue
+                  tag: fieldValue
                 }
-            }
-        }`,
-        mapDataToProps: data => (
-            data.posts.groups
-            .map(group => group.tag)
-            .map(tag => ({
-                path: `/tags/${tag}`,
-                component: `${__dirname}/src/templates/tag.tsx`,
-                context: { tag },
-            }))
-        ),
-    })()
-}
+              }
+            }`,
+    mapDataToProps: data => (
+      data.posts.groups
+        .map(group => group.tag)
+        .map(tag => ({
+          path: `/tags/${tag}`,
+          component: `${__dirname}/src/templates/tag.tsx`,
+          context: { tag },
+        }))
+    ),
+  })();
+};

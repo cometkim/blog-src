@@ -1,12 +1,11 @@
-import React from 'react'
-import { createGlobalStyle } from 'styled-components'
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
 
-import theme from 'utils/theme'
-import { useSiteMetadata } from 'hooks/use-site-metadata'
-import { ScrollStateProvider } from 'hooks/use-scroll-state'
-import { SiteHelmet } from 'components'
-
-import 'assets/hack-subset.css'
+import theme from '~/src/utils/theme';
+import { useSiteMetadata } from '~/src/hooks/use-site-metadata';
+import { ScrollStateProvider } from '~/src/hooks/use-scroll-state';
+import { SiteHelmet } from '~/src/components';
+import '~/src/assets/hack-subset.css';
 
 const GlobalStyle = createGlobalStyle`
     @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -35,20 +34,20 @@ const GlobalStyle = createGlobalStyle`
     html, body {
         margin: 0;
     }
-`
+`;
 
 const Layout: React.FC = ({ children }) => {
-    const siteMetadata = useSiteMetadata()
-    return (
+  const siteMetadata = useSiteMetadata();
+  return (
         <>
             {/* 사이트 기본 메타 정보는 대부분의 페이지에서 Override 되며, 생략된 경우만 사용 */}
             <SiteHelmet {...siteMetadata}/>
             <GlobalStyle/>
             <ScrollStateProvider>
-                {children}
+              {children}
             </ScrollStateProvider>
         </>
-    )
-}
+  );
+};
 
-export default Layout
+export default Layout;

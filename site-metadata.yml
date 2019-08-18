@@ -1,3 +1,4 @@
+# GatsbyJS 기본 SiteMetadata
 siteUrl: https://blog.cometkim.kr
 
 title: cometkim's dev blog
@@ -9,9 +10,20 @@ keywords:
   - blog
   - web
 
+# 블로그 주인장 정보
 owner:
   name: Hyeseong Kim
   email: cometkim.kr@gmail.com
   github: cometkim
   twitter: KrComet
   gravatar: f8926983e9d37ea2f6ffba6575fad143
+
+# Google Analytics
+ga:
+  trackingId: UA-71008614-1
+
+# Utteranc (깃헙 댓글 서비스)
+utteranc:
+  repo: cometkim/blog-posts
+  branch: master
+  issueTerm: pathname

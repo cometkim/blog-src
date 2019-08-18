@@ -1,7 +1,6 @@
-import styled from 'styled-components'
-import theme from 'utils/theme'
+import styled from 'styled-components';
 
-import 'assets/prism-atom-dark.css'
+import theme from '~/src/utils/theme';
 
 export default styled.article`
     font-weight: 400;
@@ -17,7 +16,7 @@ export default styled.article`
     strong {
         font-weight: 600;
     }
-    
+
     blockquote {
         position: relative;
         color: #999;
@@ -34,16 +33,11 @@ export default styled.article`
         }
     }
 
-    & :not(pre) > code {
+    code:not(.vscode-highlight-code) {
         font-size: .8rem;
         padding: .15rem .4rem;
         background-color: ${theme.grayColor};
         border-radius: 3px;
-    }
-
-    pre[class*="language-"] {
-        margin-left: -${theme.contentSidePadding};
-        margin-right: -${theme.contentSidePadding};
     }
 
     ul {
@@ -62,4 +56,4 @@ export default styled.article`
         margin: auto;
         box-shadow: 0 0 1.25rem rgba(0, 0, 0, .1);
     }
-`
+`;

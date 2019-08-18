@@ -6,7 +6,7 @@ module.exports = {
     '.cache',
   ],
   transformIgnorePatterns: [
-    'node_modules/(?!(gatsby)/)'
+    'node_modules/(?!(gatsby)/)',
   ],
   modulePaths: [
     '<rootDir>/src/',
@@ -25,11 +25,11 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: '',
   },
-  testURL: 'http://localhost',
+  testURL: 'http://blog.cometkim.kr',
   setupFiles: [
     '<rootDir>/test/loadershim.js',
   ],
   setupFilesAfterEnv: [
     '<rootDir>/test/setup.js',
   ],
-}
+};

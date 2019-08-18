@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 interface FooterProps {
-    owner: string;
+  owner: string;
 }
 
 const Container = styled.footer`
@@ -13,7 +13,7 @@ const Container = styled.footer`
     margin: 0;
     width: 100%;
     height: 3rem;
-`
+`;
 
 const Section = styled.div`
     text-align: center;
@@ -32,33 +32,35 @@ const Section = styled.div`
         font-weight: bold;
         text-decoration: none;
     }
-`
+`;
 
-const Footer: React.FC<FooterProps> = ({ owner }) => (
+const Footer: React.FC<FooterProps> = ({ owner }) => {
+  return (
     <Container>
-        <Section>
-            {`© 2018 `}
-            <Link to='/about/'>{owner}</Link>
-        </Section>
-        <Section>
-            {`Powered by `}
-            <a href='https://gatsbyjs.org' target='_blank' rel='noopener noreferrer'>
+      <Section>
+        {'© 2018 '}
+        <Link to='/about/'>{owner}</Link>
+      </Section>
+      <Section>
+        {'Powered by '}
+        <a href='https://gatsbyjs.org' target='_blank' rel='noopener noreferrer'>
                 GatsbyJS
-            </a>
-        </Section>
-        <Section>
-            {`Hosted by `}
-            <a href='https://netlify.com' target='_blank' rel='noopener noreferrer'>
+        </a>
+      </Section>
+      <Section>
+        {'Hosted by '}
+        <a href='https://netlify.com' target='_blank' rel='noopener noreferrer'>
                 Netlify
-            </a>
-        </Section>
-        <Section>
-            {`Source code on `}
-            <a href='https://github.com/cometkim/blog-src' target='_blank' rel='noopener noreferrer'>
+        </a>
+      </Section>
+      <Section>
+        {'Source code on '}
+        <a href='https://github.com/cometkim/blog-src' target='_blank' rel='noopener noreferrer'>
                 GitHub
-            </a>
-        </Section>
+        </a>
+      </Section>
     </Container>
-)
+  );
+};
 
-export default Footer
+export default Footer;
