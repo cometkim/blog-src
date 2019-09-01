@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 
 import theme from '~/src/utils/theme';

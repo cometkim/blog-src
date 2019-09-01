@@ -1,5 +1,5 @@
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+import { Global, css } from '@emotion/core';
 
 import theme from '~/src/utils/theme';
 import { useSiteMetadata } from '~/src/hooks/use-site-metadata';
@@ -7,7 +7,8 @@ import { ScrollStateProvider } from '~/src/hooks/use-scroll-state';
 import { SiteHelmet } from '~/src/components';
 import '~/src/assets/hack-subset.css';
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle: React.FC = () => (
+  <Global styles={css`
     @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
     body {
@@ -34,7 +35,8 @@ const GlobalStyle = createGlobalStyle`
     html, body {
         margin: 0;
     }
-`;
+  `}/>
+);
 
 const Layout: React.FC = ({ children }) => {
   const siteMetadata = useSiteMetadata();

@@ -9,6 +9,7 @@ module.exports = {
   siteMetadata,
   plugins: [
     'gatsby-plugin-catch-links',
+    'gatsby-plugin-emotion',
     'gatsby-plugin-feed',
     'gatsby-plugin-netlify',
     'gatsby-plugin-netlify-cache',
@@ -16,7 +17,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-styled-components',
     'gatsby-plugin-twitter',
     'gatsby-plugin-typescript',
     {

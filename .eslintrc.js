@@ -1,7 +1,8 @@
 module.exports = {
   extends: 'react-app',
   plugins: [
-    'import', 'flowtype', 'jsx-a11y', 'react', 'react-hooks', '@typescript-eslint'
+    'import', 'flowtype', 'jsx-a11y', 'react', 'react-hooks', '@typescript-eslint',
+    'emotion',
   ],
   rules: {
     'quotes': ['error', 'single'],
@@ -12,6 +13,13 @@ module.exports = {
     'indent': 'off',
     '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/explicit-function-return-type': 'off',
+
+    // Rules of hooks
     'react-hooks/exhaustive-deps': 'error',
+
+    // Emotion
+    'emotion/jsx-import': 'error',
+    'emotion/styled-import': 'error',
+    'emotion/no-vanilla': 'error',
   },
 };
