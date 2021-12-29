@@ -41,6 +41,7 @@ module.exports = {
                 name: title,
                 short_name: title,
                 description,
+                icons: [],
                 start_url: '/',
                 display: 'minimal-ui',
             },
